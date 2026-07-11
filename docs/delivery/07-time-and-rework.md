@@ -20,6 +20,8 @@
 
 开发开始以指定 `sdd init` 后进入本 workspace 为准。开发到测试结束以最后一轮 fresh 全量测试、typecheck、build、追踪与敏感信息扫描 ready 为准；之后按控制器要求进行的 12,000 中文字符扩写单独视为文档阶段，不反向修改开发测试耗时。文件中不填写无法从工具输出精确还原的分钟数，避免伪造计时；父控制器持有正式开始时间。
 
+控制器写入的 hash-chain 时间账本给出正式 `start` 为 `2026-07-11T03:40:39.641Z`，`test-report-ready` 为 `2026-07-11T03:59:13.000Z`，`elapsedMs=1113359`，即开发到测试报告 ready 为 18 分 33.359 秒。对应命令记录为 `pnpm test --run && pnpm typecheck && pnpm build`，exitCode 0；事件哈希和前序哈希保存在 `docs/delivery/time-ledger.jsonl`。文档扩写发生在该 ready 事件之后，不计入这个开发测试时长。
+
 grill 首次只生成骨架，术语指标要求固定字符串 `**`，brief 还要求独立文件与 `route:`。补齐后推进。product 的 YAML 内容实际有效，但 Windows 环境执行 `cat` 失败，导致 `yaml_has_keys` 恒 false；保留三类场景后使用 fallback。dev 补齐 ADDED Requirements、File Structure Plan、boundary 和五项 task 后通过。
 
 test 阶段的 auto discovery 在 pnpm workspace 返回 0，即使仓库已有多份 `*.test.ts`。没有修改 Harness 搜索逻辑，而是直接运行真实 Vitest。code 阶段同样无法由 auto source 在 monorepo 识别 `apps/admin-web/src`，所以以源码 diff、定向 RED/GREEN、全量测试、typecheck 和 build 为准推进。review 首次因 scaffold 缺权威行失败；按 skill 规定补 `Superpowers verdict: ready` 后通过。
