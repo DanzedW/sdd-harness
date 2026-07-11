@@ -76,7 +76,8 @@ describe("commerce workflow service", () => {
 
     const reloaded = createCommerceWorkflowService(storage);
     expect(reloaded.get(id).stage).toBe("REFUNDED");
-    expect(reloaded.get(id).audits.at(-2)?.note).toBe("用户取消订单");
+    const audits = reloaded.get(id).audits;
+    expect(audits[audits.length - 2]?.note).toBe("用户取消订单");
 
     reloaded.reset();
     expect(reloaded.list()[0].stage).toBe("MERCHANT_REVIEW");

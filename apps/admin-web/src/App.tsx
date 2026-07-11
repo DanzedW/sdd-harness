@@ -35,6 +35,7 @@ import { ErrorBoundary } from "./components/ErrorBoundary";
 import { OperationsRegistryPage } from "./pages/OperationsRegistryPage";
 import { DOMAIN_CATALOG } from "./operations/domainCatalog";
 import { FinancialWorkbenchPage } from "./pages/FinancialWorkbenchPage";
+import { CommerceWorkbenchPage } from "./pages/CommerceWorkbenchPage";
 
 function RequireAuth() {
   const token = localStorage.getItem("admin-token");
@@ -62,6 +63,7 @@ export default function App() {
             <Route element={<AdminLayout />}>
               <Route index element={<Navigate to="/dashboard" replace />} />
               <Route path="/dashboard" element={<DashboardPage />} />
+              <Route path="/commerce-workbench" element={<CommerceWorkbenchPage />} />
               <Route path="/operations" element={<OperationsRegistryPage />} />
               {DOMAIN_CATALOG.map((domain) => (
                 <Route key={domain.route} path={domain.route} element={<OperationsRegistryPage />} />
