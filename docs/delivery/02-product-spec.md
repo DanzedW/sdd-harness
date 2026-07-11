@@ -21,7 +21,7 @@ registry 必须 93/17/24 精确匹配；页面仅经 services 访问 Mock；金�
 
 点击“详情”会打开抽屉，并把地址切换到该需求的 `/operations/requirements/pc-nnn` 路由。详情显示业务域、模块、确认状态、完整来源说明、来源哈希和路由。关闭抽屉时返回当前业务域入口；如果不是从某个域进入，则返回全部台账。直接访问不存在的需求编号时，service 明确抛出“需求不存在”，页面回到台账入口。
 
-共享台账不提供执行按钮。真实动作必须从领域 catalog 的专用能力入口进入对应 page/service；UNCONFIRMED 只显示来源与风险。factory 中保留的受控 execute 仅用于安全合同测试，页面 singleton 只暴露 query/get/auditTrail。
+共享台账不提供执行按钮，也不导出通用 execute。factory 与 singleton 都只暴露 query/get/auditTrail；真实动作必须从领域 catalog 的专用能力入口进入对应 page/service，UNCONFIRMED 只显示来源与风险。
 
 ## 资金工作台
 
@@ -35,4 +35,4 @@ registry 必须 93/17/24 精确匹配；页面仅经 services 访问 Mock；金�
 
 ## 可验收场景
 
-验收者可以检查：从任一域菜单进入后表格只显示该域；搜索 PC-080 可打开详情；共享台账没有通用执行入口；专用能力按钮导航到既有页面。安全合同测试验证 identical request replay、跨 requirement/action/payload key 冲突、unknown/UNCONFIRMED 先拒绝及非法金额/比例拒绝。追踪 JSON 与 registry 均为 93/17/24。
+验收者可以检查：从任一域菜单进入后表格只显示该域；搜索 PC-080 可打开详情；共享台账没有通用执行入口；专用能力按钮导航到既有页面。服务合同测试验证只读 API 不包含 execute、UNCONFIRMED 只能查询且不能经共享台账触发 mutation。追踪 JSON 与 registry 均为 93/17/24。
