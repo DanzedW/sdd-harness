@@ -35,3 +35,11 @@
 ## ADR 候选
 - ADR-001：以强类型 registry 作为 93 条需求的单一运行时清单，UI、导航、service 路由和追踪文件从相同 ID/域映射校验。
 - ADR-002：通用低风险条目复用 FeatureLedgerPage；资金类复用 FinancialWorkbench；现有专用页面继续保留，避免空壳占位。
+
+## 2026-07 gap audit findings
+
+- 旧文档 `three-terminal-mvp-business-process.md` 只作为批判超越对象；其三端/H5/真实渠道/75项报价不得进入 V1.4 PC scope。
+- 旧文档第 5 节暂缓上门服务、第 7 节排除发票，与当前 V1.4 PC-169..172 和 PC-086..092 冲突；以 V1.4 为准，发票动作因来源标记保持 blocked。
+- 当前第一波 trace 的 owner/route/page/service/test 唯一分布过度共享，只证明 93 条可见和 24 条阻断，不证明 17 域语义。
+- ADR-003：新增 17 域 module implementation matrix，严格区分 existing 与 `planned:`，作为下一波 owner/page/service/test 迁移合同。
+- ADR-004：trace 采用逐域里程碑迁移；未通过领域测试的条目不得从 first-wave/PLANNED/BLOCKED 改为 IMPLEMENTED。

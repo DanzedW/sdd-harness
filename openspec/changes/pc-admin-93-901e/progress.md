@@ -14,3 +14,12 @@
 - Failure classification: no functional regression; one fixed new typecheck failure; environment/blocker is unavailable browser/Lighthouse capture and non-portable Harness Windows/monorepo probes.
 - Non-functional waiver: build bundle sizes captured; Browser/Lighthouse perf and accessibility scores not captured in the timed workspace.
 - Risk: Ant Design chunk warning and absence of browser E2E remain explicitly disclosed.
+
+## [target-T documentation contract]
+
+- Read the two authorized 2026-07 reference documents; used them only for gap analysis, not functional scope.
+- Added a 17-domain implementation matrix with current disk evidence, planned next-wave boundaries, milestones, UNCONFIRMED IDs and finance safety.
+- Rewrote proposal, acceptance criteria, spec, design and tasks with 17 domain GWT, M0..M6 and verification commands.
+- Expanded LLMWiki matrix to 17 rows with unit/integration/UI/manual evidence and existing/planned/blocked status.
+- Added gap-and-surpass audit explicitly documenting that two shared pages and one shared service are first-wave coverage only.
+- Constraint observed: no files under `apps/admin-web` changed in target-T round.

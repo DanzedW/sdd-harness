@@ -24,6 +24,8 @@ OpenSpec change 目录包含 findings、brief、proposal、acceptance criteria�
 
 `docs/delivery` 的 00 到 08 是合同要求的九份 Markdown；`requirements-traceability.json` 是 93 行机器追踪；`09-local-runbook.md` 是追加的本地运行与手工验收说明，不替代合同文档。构建产物位于 `apps/admin-web/dist`，由命令生成，未作为手写源码列入职责表。
 
+目标 T 文档波次新增 `10-2026-07-gap-and-surpass.md` 与 `module-implementation-matrix.json`，并重写当前 change 的 proposal、acceptance criteria、spec、design、tasks 及 LLMWiki 17 域测试矩阵。该波次没有修改 `apps/admin-web`；planned page/service/test 只存在于实施合同，不作为当前源码文件计数。
+
 ## 未修改范围
 
 没有修改 `.obsidian/`、`.claude/` 或 `.claudian/`。没有修改 common evaluator、controller、Harness 安装目录、另一个实验 workspace、原始 Excel 或原业务项目。`experiment/requirements.pc.json` 只读；Excel 只作为 immutable evidence。已有 services、mocks、domain 和页面文件除 App/Layout 接线外保持不变。
