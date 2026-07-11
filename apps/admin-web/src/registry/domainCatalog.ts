@@ -41,7 +41,7 @@ const idsFor = (group: string) => PC_REQUIREMENTS.filter((item) => item.group ==
 const sharedPage = (route: string): EvidenceTarget => ({ name: "RequirementLedgerPage", route, locator: "apps/admin-web/src/pages/RequirementLedgerPage.tsx#RequirementLedgerPage" });
 const sharedService: EvidenceTarget = { name: "requirementLedgerService", locator: "apps/admin-web/src/services/requirementLedgerService.ts#requirementLedgerService" };
 const sharedMock: EvidenceTarget = { name: "requirementLedgerService Mock", locator: "apps/admin-web/src/services/requirementLedgerService.ts#createRequirementLedgerService" };
-const sharedTest: EvidenceTarget = { name: "domain catalog contract", locator: "apps/admin-web/src/registry/domainCatalog.test.ts#L10" };
+const sharedTest: EvidenceTarget = { name: "requirement registry contract", locator: "apps/admin-web/src/registry/pcRequirementRegistry.test.ts#L5" };
 
 const domain = (entry: Omit<DomainCatalogEntry, "requirementIds">): DomainCatalogEntry => ({ ...entry, requirementIds: idsFor(entry.name) });
 

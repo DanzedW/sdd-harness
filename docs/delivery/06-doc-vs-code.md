@@ -4,7 +4,7 @@
 |---|---|
 | 93 条、17 域、24 未确认 | `pcRequirementRegistry.ts#validateRegistry` + registry test |
 | 页面只经 service 访问 Mock | `RequirementLedgerPage.tsx`、`FinancialWorkbenchPage.tsx` 仅 import service |
-| 未确认动作禁用 | 台账按钮 `disabled` + `requirementLedgerService.execute` 拒绝 |
+| 未确认动作禁用 | 共享台账无 mutation + factory execute 在 replay 前拒绝 |
 | 整数分/基点 | `assertFinancialInput` + service test |
 | 资金治理语义 | `FinancialWorkbenchPage` 的幂等/状态/审计/异常/对账说明 |
 | 逐条追踪 | `requirements-traceability.json` 93 个对象、12 个字段 |
@@ -33,6 +33,6 @@
 
 ## Target-T 当前分布
 
-typed `domainCatalog.ts` 现在提供 17 个独立 owner、17 个 slug/命名 route symbol 和 17 个 route locator。93 行 trace 的唯一分布为：owner 17、route 17、page 17、service 8、mock 8、test 9、status 3。status 计数是 `IMPLEMENTED_SPECIALIZED=59`、`IMPLEMENTED_SHARED=10`、`UNCONFIRMED_ACTION_DISABLED=24`。
+typed `domainCatalog.ts` 提供 17 个 owner 与实际 URL route；代码锚点另存 `routeLocator`。最终真实性修复后 status 为 `IMPLEMENTED_SPECIALIZED=5`、`IMPLEMENTED_SHARED=64`、`UNCONFIRMED_ACTION_DISABLED=24`，只把真实 page→facade→tested underlying chain 标为 specialized。
 
 共享 locator 仍有合理复用：RequirementLedgerPage 承载 26 条跨域 inventory，requirementLedgerService 承载 31 条共享/阻断能力；这不再是单 locator，也不表示这些条目拥有专用语义。支付、退款、分账、结算、对账、积分/券资金池、积分发放和认领通过 `FINANCE_SPECIALIZED_CAPABILITIES` 映射现有专页、service、mock 与 test；FinancialWorkbench 只展示聚合入口和证据。

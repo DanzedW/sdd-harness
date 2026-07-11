@@ -8,6 +8,7 @@ import {
   getDomainBySlug,
   getDomainForRequirement,
 } from "./domainCatalog";
+import { requirementLedgerService } from "../services/requirementLedgerService";
 
 describe("17-domain implementation catalog", () => {
   it("owns every requirement exactly once with named routes and real evidence locators", () => {
@@ -47,14 +48,20 @@ describe("93-row domain trace contract", () => {
     expect(traceability.filter((row) => row.status === "UNCONFIRMED_ACTION_DISABLED")).toHaveLength(24);
     expect(traceability.some((row) => row.status === "IMPLEMENTED_SPECIALIZED")).toBe(true);
     expect(traceability.some((row) => row.status === "IMPLEMENTED_SHARED")).toBe(true);
-    expect(new Set(traceability.map((row) => row.route)).size).toBeGreaterThanOrEqual(17);
+    expect(new Set(traceability.map((row) => row.route)).size).toBe(17);
     expect(new Set(traceability.map((row) => row.page)).size).toBeGreaterThan(2);
     expect(new Set(traceability.map((row) => row.service)).size).toBeGreaterThan(2);
     expect(new Set(traceability.map((row) => row.test)).size).toBeGreaterThan(2);
     expect(JSON.stringify(traceability)).not.toContain("planned:");
+    expect(new Set(traceability.map((row) => row.evidenceHash)).size).toBe(93);
     for (const row of traceability) {
-      expect(getDomainForRequirement(row.id)?.owner).toBe(row.owner);
-      expect(row.route).toBe(getDomainForRequirement(row.id)?.routeLocator);
+      const domain = getDomainForRequirement(row.id);
+      expect(domain?.owner).toBe(row.owner);
+      expect(row.route).toBe(domain?.route);
+      expect((row as typeof row & { routeLocator: string }).routeLocator).toBe(domain?.routeLocator);
+      expect((row as typeof row & { sourceSha256: string }).sourceSha256).toMatch(/^[a-f0-9]{64}$/);
+      expect(row.evidenceHash).toMatch(/^[a-f0-9]{64}$/);
+      expect(row.evidenceHash).not.toBe((row as typeof row & { sourceSha256: string }).sourceSha256);
     }
   });
 });
@@ -73,5 +80,30 @@ describe("named route and UI/service boundary", () => {
     expect(Object.values(app).join("\n")).toContain("/operations/domains/:domainSlug");
     expect(Object.values(app).join("\n")).not.toContain("/operations/domain/:domainIndex");
     expect(Object.values(layout).join("\n")).toContain("DOMAIN_CATALOG.map");
+    expect(ledgerPage).not.toContain("requirementLedgerService.execute");
+    expect("execute" in requirementLedgerService).toBe(false);
+  });
+
+  it("resolves every code locator to an existing file and anchor", () => {
+    const sourceFiles = {
+      ...import.meta.glob("./*.ts", { eager: true, import: "default", query: "?raw" }),
+      ...import.meta.glob("../**/*.{ts,tsx}", { eager: true, import: "default", query: "?raw" }),
+    } as Record<string, string>;
+    const locatorFields = ["routeLocator", "page", "service", "mock", "test", "verifier"] as const;
+    for (const row of traceability) {
+      for (const field of locatorFields) {
+        const locator = (row as typeof row & { routeLocator: string })[field];
+        const [path, anchor] = locator.split("#");
+        const fileName = path.replace(/\\/g, "/").split("/").pop();
+        const source = Object.entries(sourceFiles).find(([file]) => file.replace(/\\/g, "/").endsWith(`/${fileName}`))?.[1];
+        expect(source, `${row.id} ${field} file ${path}`).toBeTypeOf("string");
+        if (typeof source !== "string") throw new Error(`Missing locator source: ${path}`);
+        if (/^L\d+$/.test(anchor)) {
+          expect(Number(anchor.slice(1)), `${row.id} ${field} line`).toBeLessThanOrEqual(source.split(/\r?\n/).length);
+        } else {
+          expect(source, `${row.id} ${field} symbol ${anchor}`).toMatch(new RegExp(`\\b${anchor}\\b`));
+        }
+      }
+    }
   });
 });

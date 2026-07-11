@@ -47,6 +47,6 @@
 ## M6 — Evidence closure (COMPLETE for this code wave)
 
 - [x] M6.1 将 93 行 trace 的 owner/route/page/service/mock/test/verifier/status 更新到真实存在 locator。
-- [x] M6.2 输出 17 owner / 17 route / 17 page / 8 service / 8 mock / 9 test / 3 status 分布；无 planned locator。
-- [x] M6.3 full test 12 files/45 tests、typecheck、build 通过，并运行 93/17/24 与 locator 自检。
+- [x] M6.2 route 存真实 URL、routeLocator 存代码锚点；status 5 specialized / 64 shared / 24 disabled；无 planned/broken locator。
+- [x] M6.3 final full test 12 files/49 tests、typecheck、build 通过，并运行 93/17/24 与 locator 自检。
 - Verify: `pnpm --filter admin-web test --run && pnpm typecheck && pnpm build` + evidence audit。

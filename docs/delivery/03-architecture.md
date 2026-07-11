@@ -17,7 +17,7 @@
 
 ## Service 层
 
-`createRequirementLedgerService` 是可隔离测试的工厂。每个实例拥有自己的审计数组与幂等 Map，测试不会共享状态。`query` 组合关键词、域和未确认过滤并返回新数组；`get` 对不存在 ID 给出明确错误；`execute` 的顺序是先检查幂等结果、再定位需求、再阻断 UNCONFIRMED、再校验金融输入，最后创建审计。审计包含 ID、需求 ID、幂等键、动作、状态、操作人、时间和输入快照。
+`createRequirementLedgerService` 是可隔离测试的安全合同工厂。`execute` 先验证 requirement 存在与 UNCONFIRMED，再校验金融输入，最后按 requirementId+action+canonical payload hash 检查 replay；同 raw key 不同 scope 明确冲突。页面 singleton 只暴露 query/get/auditTrail，不暴露 execute，避免共享台账冒充领域 mutation。
 
 金额校验要求非负且 `Number.isInteger`，比例除整数外限制在 0..10000。内部字段名显式使用 `amountCent` 与 `rateBp`，避免把元或百分比误传进 service。返回审计副本时也复制 input，调用方不能通过修改返回对象篡改内部记录。
 

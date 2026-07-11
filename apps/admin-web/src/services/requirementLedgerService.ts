@@ -15,11 +15,28 @@ export interface RequirementAudit {
   auditId: string;
   requirementId: string;
   idempotencyKey: string;
-  action: "EXECUTE";
+  action: RequirementAuditAction;
+  payloadHash: string;
   status: "SUCCESS";
   operator: string;
   operatedAt: string;
   input: FinancialInput;
+}
+
+export type RequirementAuditAction = "SIMULATE" | "PREVIEW";
+
+function canonicalPayload(input: FinancialInput): string {
+  return JSON.stringify(Object.fromEntries(Object.entries(input).sort(([left], [right]) => left.localeCompare(right))));
+}
+
+function hashCanonicalPayload(input: FinancialInput): string {
+  const value = canonicalPayload(input);
+  let hash = 0x811c9dc5;
+  for (let index = 0; index < value.length; index += 1) {
+    hash ^= value.charCodeAt(index);
+    hash = Math.imul(hash, 0x01000193);
+  }
+  return (hash >>> 0).toString(16).padStart(8, "0");
 }
 
 function assertFinancialInput(input: FinancialInput): void {
@@ -33,7 +50,7 @@ function assertFinancialInput(input: FinancialInput): void {
 
 export function createRequirementLedgerService() {
   const audits: RequirementAudit[] = [];
-  const idempotency = new Map<string, RequirementAudit>();
+  const idempotency = new Map<string, { scope: string; audit: RequirementAudit }>();
 
   return {
     async query(query: LedgerQuery = {}): Promise<{ items: PcRequirement[]; total: number }> {
@@ -52,25 +69,31 @@ export function createRequirementLedgerService() {
       return item;
     },
 
-    async execute(id: string, idempotencyKey: string, input: FinancialInput = {}): Promise<RequirementAudit> {
-      const existing = idempotency.get(idempotencyKey);
-      if (existing) return existing;
+    async execute(id: string, idempotencyKey: string, action: RequirementAuditAction, input: FinancialInput = {}): Promise<RequirementAudit> {
       const requirement = findRequirement(id);
       if (!requirement) throw new Error(`需求不存在: ${id}`);
       if (requirement.unconfirmed) throw new Error(`${id} 为 UNCONFIRMED，真实动作已禁用`);
       assertFinancialInput(input);
+      const payloadHash = hashCanonicalPayload(input);
+      const scope = `${id}:${action}:${payloadHash}`;
+      const existing = idempotency.get(idempotencyKey);
+      if (existing) {
+        if (existing.scope !== scope) throw new Error(`幂等键冲突: ${idempotencyKey} 已绑定不同 requirement/action/payload`);
+        return existing.audit;
+      }
       const audit: RequirementAudit = {
         auditId: `AUD-${String(audits.length + 1).padStart(4, "0")}`,
         requirementId: id,
         idempotencyKey,
-        action: "EXECUTE",
+        action,
+        payloadHash,
         status: "SUCCESS",
         operator: "演示管理员",
         operatedAt: new Date().toISOString(),
         input,
       };
       audits.push(audit);
-      idempotency.set(idempotencyKey, audit);
+      idempotency.set(idempotencyKey, { scope, audit });
       return audit;
     },
 
@@ -80,4 +103,9 @@ export function createRequirementLedgerService() {
   };
 }
 
-export const requirementLedgerService = createRequirementLedgerService();
+const ledgerService = createRequirementLedgerService();
+export const requirementLedgerService = {
+  query: ledgerService.query,
+  get: ledgerService.get,
+  auditTrail: ledgerService.auditTrail,
+};

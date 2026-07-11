@@ -26,7 +26,7 @@
 
 ## UNCONFIRMED 处理细则
 
-来源中 24 条标记覆盖发票核验与抽奖规则、第三方系统或设备、部分资金口径等。registry 不解析长文本来猜结果，只消费明确的 `unconfirmed` 字段。列表保留完整 detail，详情显示黄色状态，执行按钮禁用并给出原因。service 抛出的错误包含需求 ID 与 UNCONFIRMED，便于审计调用方识别是口径阻断而非网络失败。
+来源中 24 条标记覆盖发票核验与抽奖规则、第三方系统或设备、部分资金口径等。registry 不解析长文本来猜结果，只消费明确的 `unconfirmed` 字段。列表保留完整 detail，共享台账完全没有执行入口；受控 factory execute 仍先拒绝 UNCONFIRMED，不能被 replay cache 绕过。
 
 确认流程必须从需求源开始：产品或商务提供可追溯结论，更新 JSON 标记和详细规则；开发实现具体状态机或接口；测试覆盖成功、失败、幂等和回滚；追踪更新 AC、owner、test、status 与 evidenceHash；最后再开放 UI。任何只通过浏览器开发者工具移除 disabled 的做法都会被 service 拦截。
 

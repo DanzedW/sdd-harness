@@ -1,4 +1,4 @@
-import { Button, Card, Descriptions, Drawer, Input, Select, Space, Table, Tag, Typography, message } from "antd";
+import { Button, Card, Descriptions, Drawer, Input, Select, Space, Table, Tag, Typography } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -53,9 +53,8 @@ export function RequirementLedgerPage() {
     { title: "模块", dataIndex: "module", width: 180 },
     { title: "确认状态", dataIndex: "unconfirmed", width: 130, render: (value: boolean) => value ? <Tag color="warning">UNCONFIRMED</Tag> : <Tag color="success">已确认范围</Tag> },
     { title: "需求说明", dataIndex: "detail", ellipsis: true },
-    { title: "操作", width: 180, fixed: "right", render: (_, record) => <Space>
+    { title: "操作", width: 100, fixed: "right", render: (_, record) => <Space>
       <Button size="small" onClick={() => { setSelected(record); navigate(record.route); }}>详情</Button>
-      <Button size="small" type="primary" disabled={record.unconfirmed} title={record.unconfirmed ? "UNCONFIRMED 真实动作已禁用" : undefined} onClick={() => void requirementLedgerService.execute(record.id, `ui-${record.id}-${Date.now()}`).then(() => message.success("Mock 动作完成并已审计"))}>执行</Button>
     </Space> },
   ], [navigate]);
 
