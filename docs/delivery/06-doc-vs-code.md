@@ -30,3 +30,9 @@
 ## 审阅清单
 
 审阅者应逐项确认：App 有四类新路由；AdminLayout 有 17 域派生菜单；registry 没有变造来源字段；service 的保护发生在审计创建前；测试使用新 service 实例避免状态泄漏；页面没有直接 import Mock；资金工作台不是空壳；交付文档没有 secrets；追踪有 93 行与 12 字段；风险中明确浏览器和包体缺口。
+
+## Target-T 当前分布
+
+typed `domainCatalog.ts` 现在提供 17 个独立 owner、17 个 slug/命名 route symbol 和 17 个 route locator。93 行 trace 的唯一分布为：owner 17、route 17、page 17、service 8、mock 8、test 9、status 3。status 计数是 `IMPLEMENTED_SPECIALIZED=59`、`IMPLEMENTED_SHARED=10`、`UNCONFIRMED_ACTION_DISABLED=24`。
+
+共享 locator 仍有合理复用：RequirementLedgerPage 承载 26 条跨域 inventory，requirementLedgerService 承载 31 条共享/阻断能力；这不再是单 locator，也不表示这些条目拥有专用语义。支付、退款、分账、结算、对账、积分/券资金池、积分发放和认领通过 `FINANCE_SPECIALIZED_CAPABILITIES` 映射现有专页、service、mock 与 test；FinancialWorkbench 只展示聚合入口和证据。

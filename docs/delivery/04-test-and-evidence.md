@@ -27,3 +27,11 @@ registry 的第一个测试同时断言数组长度、首尾编号、Set 唯一�
 ## 证据限制
 
 本轮没有采集浏览器 viewport、关键交互 state transition、Lighthouse 性能或可访问性分数。4D verify probe 因缺这些字段得到真实 `pass:false`，报告保存在 run 目录。交付没有把 unit/typecheck/build 冒充浏览器 E2E；手工验收步骤写在本地运行手册，后续补证时应启动 preview 并生成新的 probe evidence/report。
+
+## Target-T 代码波次证据
+
+- RED 1：`domainCatalog.test.ts` 因生产模块不存在失败；GREEN 后 catalog 的 17/93、命名 route 与资金专用映射通过。
+- RED 2：catalog 两项通过但旧 trace 缺 `IMPLEMENTED_SPECIALIZED/SHARED` 而失败；重生成 93 行 trace 后通过。
+- 定向：domain catalog 4/4 tests passed，覆盖 17 命名 route、领域归属、九项资金专用映射、trace 分布和 UI/service import 边界。
+- Full：12 test files / 45 tests passed；`pnpm typecheck` exit 0；`pnpm build` exit 0，3167 modules transformed。
+- 浏览器 probe 仍未补采，因此 M5 只完成 source-contract evidence，不宣称 Browser/Lighthouse 通过。

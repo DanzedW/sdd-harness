@@ -37,12 +37,12 @@ pnpm --filter admin-web preview -- --port 4173
 ## 关键路由
 
 - `/operations`：全部 93 条功能台账。
-- `/operations/domain/0` 到 `/operations/domain/16`：按来源顺序的 17 个业务域。
-- `/operations/pc-080` 到 `/operations/pc-172`：需求详情深链。
+- `/operations/domains/<slug>`：17 个稳定命名业务域，例如 `/operations/domains/finance`。
+- `/operations/requirements/pc-080` 到 `/operations/requirements/pc-172`：需求详情深链。
 - `/financial-workbench`：资金链路专用工作台。
 - `/payments`、`/refund`、`/split-instructions`、`/settlement`、`/reconciliation`：保留的既有资金专页。
 
-业务域索引由 registry 顺序决定，不建议外部系统长期保存数字索引；稳定的逐条深链是需求 ID 路由。访问不存在的需求会回到台账。所有这些路由都在 RequireAuth 内，未登录时应跳转 `/login`。
+业务域使用 typed catalog 的稳定 slug，不再依赖数字索引；逐条深链使用需求 ID。访问不存在的 slug 或需求会回到台账。所有这些路由都在 RequireAuth 内，未登录时应跳转 `/login`。
 
 ## 手工验收清单
 

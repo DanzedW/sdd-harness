@@ -98,7 +98,7 @@ The system SHALL use V1.4 PC-080..PC-172 as the only functional scope and SHALL 
 #### Scenario: Specialized finance boundaries
 **Given** PC-155..162 payment, business order and withdrawal requirements
 **When** finance users query or execute payment/refund/split/settlement/reconciliation actions
-**Then** each maps to a specialized page/service/test with integer primitives, idempotency, state, audit, reversal and reconciliation while PC-158..160 withdrawal stays blocked.
+**Then** payment and business-order facts map to specialized evidence with integer primitives, idempotency, state, audit, reversal and reconciliation; PC-158..160 utility-order dependencies stay blocked and PC-161..162 withdrawal remains shared.
 
 ### Requirement: System management domain
 #### Scenario: Least-privilege governance

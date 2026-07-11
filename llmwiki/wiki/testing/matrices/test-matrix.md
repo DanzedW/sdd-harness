@@ -4,7 +4,7 @@
 
 | 业务域 | IDs | Unit evidence | Integration evidence | UI/route evidence | Manual evidence | Current semantic status |
 |---|---|---|---|---|---|---|
-| 内容运营 | PC-080..081 | existing registry；planned contentOperationsService | planned publish/order audit flow | existing `/operations/domain/0`；planned content CRUD UI | query/edit/preview/publish/order checklist | first-wave only |
+| 内容运营 | PC-080..081 | existing catalog；planned contentOperationsService | planned publish/order audit flow | existing `/operations/domains/content-operations` + owner/maturity/evidence；planned content CRUD UI | query/edit/preview/publish/order checklist | typed shared |
 | 用户管理 | PC-082..085 | existing privacy；planned userOperationsService | planned scoped profile/status/risk audit | existing UserPage + domain route；planned detail/status UI | masked identifier、population scope、PC-083 disabled | partial + blocked |
 | 发票抽奖 | PC-086..092 | existing UNCONFIRMED rejection；planned invoiceLotteryService | planned verification→duplicate/locality→lottery→reward | existing shared pages；planned all-disabled invoice workbench | seven actions visibly blocked with dependency/reason | blocked 7/7 |
 | 分类信息 | PC-093..094 | existing registry；planned categoryContentService | planned hierarchy/association integrity | existing CategoryPage + domain route | cycle rejection、information-only vs sellable association | partial |

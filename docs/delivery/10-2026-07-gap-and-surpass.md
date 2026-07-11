@@ -68,6 +68,8 @@
 
 下一代码波次按 M1..M6：先建立 domain implementation registry 和失败测试；再复用/扩展现有专页并新增缺失域 service/page；随后完成 L 级资金安全与跨域异常；再采集 17 域 UI/manual/browser evidence；最后迁移 trace。任何 planned 文件名都是实施意图，不是当前磁盘 locator。
 
+Target-T 代码波次已完成其中的 catalog/route/evidence 层：17 个命名 slug 与 route、领域 owner/成熟度/主证据展示、九项现有资金专用能力入口、93 行领域化 trace 和 4 个 catalog/trace/UI-boundary tests 已落盘。当前缺口收敛为 M2/M4 的领域语义 service 与跨域 lifecycle，以及 M5 的真实 Browser/manual evidence；planned 文件仍不进入 locator。
+
 ## 自检口径
 
 - matrix domains = 17；名称与 V1.4 group 唯一集合完全相等。

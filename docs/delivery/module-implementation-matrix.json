@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "scope": "V1.4 PC-080..PC-172",
-  "statusNote": "existingPages/services/mocks/tests reflect current disk; milestones describe the next code waves. Shared ledger locators are first-wave coverage, not proof of domain semantics.",
+  "statusNote": "Target-T added typed named routes and real primary evidence in domainCatalog.ts. planned entries remain future semantic work; shared maturity is not specialized completion.",
   "domains": [
     {
       "name": "内容运营", "requirementIds": ["PC-080", "PC-081"], "owner": "内容运营负责人",
-      "route": ["/operations/domain/0"], "pageStrategy": "Next wave: dedicated news/notice CRUD with publish state, ordering, preview and audit; retain shared ledger as trace entry.",
+      "route": ["/operations/domains/content-operations"], "pageStrategy": "Next wave: dedicated news/notice CRUD with publish state, ordering, preview and audit; retain shared ledger as trace entry.",
       "existingPages": ["RequirementLedgerPage"], "services": ["requirementLedgerService", "planned:contentOperationsService"], "mocks": ["planned:data-content-operations"],
       "ACs": ["query news/notices", "edit and preview", "publish/unpublish with audit", "reorder deterministically"],
       "tests": ["existing:pcRequirementRegistry.test.ts", "planned:contentOperationsService.test.ts", "planned:ContentOperationsPage UI test"],
@@ -14,7 +14,7 @@
     },
     {
       "name": "用户管理", "requirementIds": ["PC-082", "PC-083", "PC-084", "PC-085"], "owner": "用户运营与风控负责人",
-      "route": ["/users", "/operations/domain/1"], "pageStrategy": "Extend UserPage with scoped user types, detail aggregation, enable/disable/risk transitions and masked identifiers; shared ledger remains trace entry.",
+      "route": ["/users", "/operations/domains/user-management"], "pageStrategy": "Extend UserPage with scoped user types, detail aggregation, enable/disable/risk transitions and masked identifiers; shared ledger remains trace entry.",
       "existingPages": ["UserPage", "RequirementLedgerPage"], "services": ["adminService", "requirementLedgerService", "planned:userOperationsService"], "mocks": ["data.ts"],
       "ACs": ["filter C/B/admin populations", "show masked profile and related facts", "audit status/risk changes", "disable PC-083 dependent actions until confirmed"],
       "tests": ["existing:privacy.test.ts", "existing:pcRequirementRegistry.test.ts", "planned:userOperationsService.test.ts", "planned:UserPage UI test"],
@@ -23,7 +23,7 @@
     },
     {
       "name": "发票抽奖", "requirementIds": ["PC-086", "PC-087", "PC-088", "PC-089", "PC-090", "PC-091", "PC-092"], "owner": "活动运营与财务风控负责人",
-      "route": ["/operations/domain/2", "planned:/invoice-lottery"], "pageStrategy": "Dedicated invoice verification/lottery/reward workbench; all mutations disabled until verification, locality, duplicate, prize and reward contracts are confirmed.",
+      "route": ["/operations/domains/invoice-lottery", "planned:/invoice-lottery"], "pageStrategy": "Dedicated invoice verification/lottery/reward workbench; all mutations disabled until verification, locality, duplicate, prize and reward contracts are confirmed.",
       "existingPages": ["RequirementLedgerPage", "FinancialWorkbenchPage"], "services": ["requirementLedgerService", "planned:invoiceLotteryService", "planned:pointGrantService adapter"], "mocks": ["planned:data-invoice-lottery"],
       "ACs": ["preserve third-party verification result and failure", "block duplicate/locality uncertainty", "version lottery pool/probability", "idempotent reward grant with audit"],
       "tests": ["existing:requirementLedgerService.test.ts", "planned:invoiceLotteryService.test.ts", "planned:InvoiceLotteryPage UI test"],
@@ -32,7 +32,7 @@
     },
     {
       "name": "分类信息", "requirementIds": ["PC-093", "PC-094"], "owner": "分类内容运营负责人",
-      "route": ["/categories", "/operations/domain/3"], "pageStrategy": "Extend CategoryPage for hierarchy, ordering, state and sellable-object association; distinguish information-only records.",
+      "route": ["/categories", "/operations/domains/category-information"], "pageStrategy": "Extend CategoryPage for hierarchy, ordering, state and sellable-object association; distinguish information-only records.",
       "existingPages": ["CategoryPage", "RequirementLedgerPage"], "services": ["adminService", "requirementLedgerService", "planned:categoryContentService"], "mocks": ["data.ts", "planned:data-category-content"],
       "ACs": ["maintain hierarchy/order/state", "associate optional sellable object", "render information-only mode", "reject invalid parent/cycles"],
       "tests": ["existing:pcRequirementRegistry.test.ts", "planned:categoryContentService.test.ts", "planned:CategoryPage UI test"],
@@ -41,7 +41,7 @@
     },
     {
       "name": "商家管理", "requirementIds": ["PC-095", "PC-096", "PC-097", "PC-098", "PC-099", "PC-100", "PC-101", "PC-102", "PC-103"], "owner": "商户运营与结算配置负责人",
-      "route": ["/merchants", "/merchants/audit", "/shops", "/qrcodes", "/settlement-profiles", "/operations/domain/4"], "pageStrategy": "Integrate existing merchant/shop/QR/settlement pages; add staff/tag/store/speaker semantics and explicit channel-dependent split configuration.",
+      "route": ["/merchants", "/merchants/audit", "/shops", "/qrcodes", "/settlement-profiles", "/operations/domains/merchant-management"], "pageStrategy": "Integrate existing merchant/shop/QR/settlement pages; add staff/tag/store/speaker semantics and explicit channel-dependent split configuration.",
       "existingPages": ["MerchantPage", "ShopPage", "QrCodePage", "SettlementProfilePage", "SplitInstructionPage", "RequirementLedgerPage", "FinancialWorkbenchPage"],
       "services": ["adminService", "merchantLifecycleService", "splitService", "settlementRules", "requirementLedgerService"], "mocks": ["data.ts", "data-merchant-lifecycle.ts", "data-settlement.ts", "data-v03.ts"],
       "ACs": ["audit onboarding and supplements", "maintain merchant/store/staff/tags", "create/enable/download QR", "version split configuration", "disable speaker protocol actions"],
@@ -51,7 +51,7 @@
     },
     {
       "name": "电商管理", "requirementIds": ["PC-104", "PC-105", "PC-106", "PC-107", "PC-108", "PC-109", "PC-110", "PC-111", "PC-112"], "owner": "电商商品与订单运营负责人",
-      "route": ["/products", "/categories", "/freight-templates", "/orders", "/logistics", "/refund", "/operations/domain/5"], "pageStrategy": "Extend existing product/order/logistics/refund pages into one audited commerce lifecycle with SKU, stock, price snapshot, fulfillment and after-sale boundaries.",
+      "route": ["/products", "/categories", "/freight-templates", "/orders", "/logistics", "/refund", "/operations/domains/commerce-management"], "pageStrategy": "Extend existing product/order/logistics/refund pages into one audited commerce lifecycle with SKU, stock, price snapshot, fulfillment and after-sale boundaries.",
       "existingPages": ["ProductPage", "ProductEditPage", "CategoryPage", "OrderPage", "LogisticsPage", "RefundPage", "RequirementLedgerPage", "FinancialWorkbenchPage"],
       "services": ["adminService", "paymentService", "ledgerService", "requirementLedgerService", "planned:commerceLifecycleService"], "mocks": ["data.ts", "data-payment.ts", "data-ledger.ts"],
       "ACs": ["manage SPU/SKU/category/freight", "query orders and independent payment facts", "audit fulfillment transitions", "model refund exception without inventing PC-112 rule"],
@@ -61,7 +61,7 @@
     },
     {
       "name": "积分管理", "requirementIds": ["PC-113", "PC-114", "PC-115", "PC-116", "PC-117", "PC-118", "PC-119", "PC-120"], "owner": "积分运营与资金池负责人",
-      "route": ["/point-grants", "/pending-points", "/funding-pools/points", "/coin-records", "/operations/domain/6"], "pageStrategy": "Integrate point grant, pending claim, records and point funding pool; add source, expiry and consumption-order contracts.",
+      "route": ["/point-grants", "/pending-points", "/funding-pools/points", "/coin-records", "/operations/domains/point-management"], "pageStrategy": "Integrate point grant, pending claim, records and point funding pool; add source, expiry and consumption-order contracts.",
       "existingPages": ["PointGrantPage", "PendingPointPage", "FundingPoolPage", "CoinRecordPage", "FinancialWorkbenchPage", "RequirementLedgerPage"],
       "services": ["pointGrantService", "fundingPoolService", "coinService", "v03MockServices", "requirementLedgerService"], "mocks": ["data-coin.ts", "data-v03.ts"],
       "ACs": ["idempotent batch grant", "masked pending claim", "record source/expiry/consume order", "occupy/release/settle funding", "disable unconfirmed pool shortage policy"],
@@ -71,7 +71,7 @@
     },
     {
       "name": "票券管理", "requirementIds": ["PC-121", "PC-122", "PC-123", "PC-124", "PC-125", "PC-126", "PC-127", "PC-128", "PC-129", "PC-130", "PC-131", "PC-132", "PC-133", "PC-134", "PC-135"], "owner": "票券运营与券资金池负责人",
-      "route": ["/coupon-templates", "/funding-pools/coupons", "/operations/domain/7"], "pageStrategy": "Integrate template and coupon pool pages; add campaign, issue, claim, lock, verify, refund and scope semantics with responsibility ledger.",
+      "route": ["/coupon-templates", "/funding-pools/coupons", "/operations/domains/coupon-management"], "pageStrategy": "Integrate template and coupon pool pages; add campaign, issue, claim, lock, verify, refund and scope semantics with responsibility ledger.",
       "existingPages": ["CouponPage", "CouponFundingPoolPage", "FinancialWorkbenchPage", "RequirementLedgerPage"],
       "services": ["couponService", "fundingPoolService", "deduction", "v03MockServices", "requirementLedgerService"], "mocks": ["data-coupon.ts", "data-v03.ts"],
       "ACs": ["version coupon template and scope", "audit campaign/claim/verification", "lock/release/settle responsibility", "disable unconfirmed creation/funding conclusions"],
@@ -81,7 +81,7 @@
     },
     {
       "name": "积分权益", "requirementIds": ["PC-136", "PC-137", "PC-138"], "owner": "权益运营负责人",
-      "route": ["/operations/domain/8", "planned:/point-benefits"], "pageStrategy": "Dedicated sign-in configuration/record and benefit-package page; benefit fulfillment stays disabled until dependency is confirmed.",
+      "route": ["/operations/domains/point-benefits", "planned:/point-benefits"], "pageStrategy": "Dedicated sign-in configuration/record and benefit-package page; benefit fulfillment stays disabled until dependency is confirmed.",
       "existingPages": ["RequirementLedgerPage", "FinancialWorkbenchPage"], "services": ["requirementLedgerService", "planned:pointBenefitService"], "mocks": ["planned:data-point-benefits"],
       "ACs": ["version sign-in rules", "query audited sign-in records", "configure benefit package", "disable PC-138 fulfillment dependency"],
       "tests": ["existing:requirementLedgerService.test.ts", "planned:pointBenefitService.test.ts", "planned:PointBenefitPage UI test"],
@@ -90,7 +90,7 @@
     },
     {
       "name": "活动报名", "requirementIds": ["PC-139", "PC-140"], "owner": "活动运营负责人",
-      "route": ["/campaigns", "/operations/domain/9"], "pageStrategy": "Replace campaign placeholder with event CRUD, signup roster, verification state and audit.",
+      "route": ["/campaigns", "/operations/domains/event-registration"], "pageStrategy": "Replace campaign placeholder with event CRUD, signup roster, verification state and audit.",
       "existingPages": ["PlaceholderLedgerPage", "RequirementLedgerPage"], "services": ["requirementLedgerService", "planned:eventRegistrationService"], "mocks": ["planned:data-event-registration"],
       "ACs": ["configure event window/capacity/state", "query registration roster", "idempotent verification", "reject duplicate or closed-event registration"],
       "tests": ["existing:pcRequirementRegistry.test.ts", "planned:eventRegistrationService.test.ts", "planned:EventRegistrationPage UI test"],
@@ -99,7 +99,7 @@
     },
     {
       "name": "生活缴费管理", "requirementIds": ["PC-141", "PC-142", "PC-143", "PC-144", "PC-145", "PC-146"], "owner": "生活缴费运营与接口风控负责人",
-      "route": ["/operations/domain/10", "planned:/utility-payments"], "pageStrategy": "Dedicated read-only configuration/result workbench until all water/charging/parking/interface contracts are confirmed; no real collection action.",
+      "route": ["/operations/domains/utility-payments", "planned:/utility-payments"], "pageStrategy": "Dedicated read-only configuration/result workbench until all water/charging/parking/interface contracts are confirmed; no real collection action.",
       "existingPages": ["RequirementLedgerPage", "FinancialWorkbenchPage"], "services": ["requirementLedgerService", "planned:utilityPaymentService"], "mocks": ["planned:data-utility-payments"],
       "ACs": ["record provider/configuration dependency", "query bill/payment/result facts", "preserve failure/refund reason", "disable every real payment/config mutation"],
       "tests": ["existing:requirementLedgerService.test.ts", "planned:utilityPaymentService.test.ts", "planned:UtilityPaymentPage disabled UI test"],
@@ -108,7 +108,7 @@
     },
     {
       "name": "小程序管理", "requirementIds": ["PC-147"], "owner": "渠道配置管理员",
-      "route": ["/operations/domain/11", "planned:/mini-programs"], "pageStrategy": "Dedicated PC configuration ledger for mini-program metadata, status and audit; it does not implement a mini-program client.",
+      "route": ["/operations/domains/mini-program-management", "planned:/mini-programs"], "pageStrategy": "Dedicated PC configuration ledger for mini-program metadata, status and audit; it does not implement a mini-program client.",
       "existingPages": ["RequirementLedgerPage"], "services": ["requirementLedgerService", "planned:miniProgramConfigService"], "mocks": ["planned:data-mini-programs"],
       "ACs": ["query configuration", "validate identifiers without secrets", "enable/disable with audit", "never expose credentials"],
       "tests": ["existing:pcRequirementRegistry.test.ts", "planned:miniProgramConfigService.test.ts", "planned:MiniProgramPage UI test"],
@@ -117,7 +117,7 @@
     },
     {
       "name": "焦点图", "requirementIds": ["PC-148", "PC-149"], "owner": "内容投放运营负责人",
-      "route": ["/ads", "/operations/domain/12"], "pageStrategy": "Extend AdvertisementPage for content, slot, schedule, order, preview and state audit.",
+      "route": ["/ads", "/operations/domains/focus-images"], "pageStrategy": "Extend AdvertisementPage for content, slot, schedule, order, preview and state audit.",
       "existingPages": ["AdvertisementPage", "RequirementLedgerPage"], "services": ["adminService", "requirementLedgerService", "planned:focusImageService"], "mocks": ["data.ts"],
       "ACs": ["manage focus content", "manage placement slots", "validate schedule/order conflicts", "preview and audit publish state"],
       "tests": ["existing:pcRequirementRegistry.test.ts", "planned:focusImageService.test.ts", "planned:AdvertisementPage UI test"],
@@ -126,7 +126,7 @@
     },
     {
       "name": "平台协议与常见问题", "requirementIds": ["PC-150", "PC-151", "PC-152", "PC-153", "PC-154"], "owner": "法务内容与客服知识负责人",
-      "route": ["/contracts", "/operations/domain/13", "planned:/platform-help"], "pageStrategy": "Extend ContractPage and add FAQ knowledge view for version, audience, effective interval, publish state and safe rich-text preview.",
+      "route": ["/contracts", "/operations/domains/platform-content", "planned:/platform-help"], "pageStrategy": "Extend ContractPage and add FAQ knowledge view for version, audience, effective interval, publish state and safe rich-text preview.",
       "existingPages": ["ContractPage", "RequirementLedgerPage"], "services": ["requirementLedgerService", "planned:platformContentService"], "mocks": ["planned:data-platform-content"],
       "ACs": ["version protocol content", "bind audience/effective interval", "manage FAQ category/order", "sanitize preview and audit publish"],
       "tests": ["existing:pcRequirementRegistry.test.ts", "planned:platformContentService.test.ts", "planned:PlatformHelpPage UI/XSS test"],
@@ -135,18 +135,18 @@
     },
     {
       "name": "财务管理", "requirementIds": ["PC-155", "PC-156", "PC-157", "PC-158", "PC-159", "PC-160", "PC-161", "PC-162"], "owner": "财务结算与对账负责人",
-      "route": ["/payments", "/ledger", "/refund", "/split-instructions", "/settlement", "/reconciliation", "/financial-workbench", "/operations/domain/14"], "pageStrategy": "Map each finance requirement to existing specialized pages/services; add withdrawal workflow only after PC-158..160 contracts are confirmed.",
+      "route": ["/payments", "/ledger", "/refund", "/split-instructions", "/settlement", "/reconciliation", "/financial-workbench", "/operations/domains/finance"], "pageStrategy": "Map payment and business-order requirements to existing specialized pages/services; PC-158..160 utility orders remain disabled, while PC-161..162 withdrawal remains shared until a dedicated workflow exists.",
       "existingPages": ["PaymentPage", "LedgerPage", "RefundPage", "SplitInstructionPage", "SettlementPage", "ReconciliationPage", "FinancialWorkbenchPage", "RequirementLedgerPage"],
       "services": ["paymentService", "ledgerService", "splitService", "settlementRules", "reconciliationService", "v03MockServices", "requirementLedgerService", "planned:withdrawalService"],
       "mocks": ["data-payment.ts", "data-ledger.ts", "data-settlement.ts", "data-reconciliation.ts", "data-v03.ts"],
-      "ACs": ["separate payment/business order facts", "idempotent refund/split/settlement", "preserve partial failure and reversal", "reconcile channel/business/equity/settlement ledgers", "disable unconfirmed withdrawal actions"],
+      "ACs": ["separate payment/business order facts", "idempotent refund/split/settlement", "preserve partial failure and reversal", "reconcile channel/business/equity/settlement ledgers", "disable PC-158..160 utility-order dependencies and keep withdrawal shared"],
       "tests": ["existing:v03-domain.test.ts", "existing:splitService.test.ts", "existing:settlementRules.test.ts", "existing:v03MockServices.test.ts", "planned:finance route/UI integration test", "planned:withdrawalService.test.ts"],
       "milestones": ["M3 finance safety gate", "M4 specialized route integration", "M5 finance UI/manual evidence", "M6 trace/evidence closure"], "unconfirmedIds": ["PC-158", "PC-159", "PC-160"],
-      "financeSafety": {"level": "L", "controls": ["integer cents/basis points", "idempotency", "state machines", "audit", "exception reason", "retry/reversal", "multi-ledger reconciliation"], "gaps": ["current trace collapses 57 finance-classified items onto one workbench locator", "withdrawal contract and dedicated service are missing"]}
+      "financeSafety": {"level": "L", "controls": ["integer cents/basis points", "idempotency", "state machines", "audit", "exception reason", "retry/reversal", "multi-ledger reconciliation"], "gaps": ["typed trace now distributes real specialized evidence but PC-161..162 still use shared service", "dedicated withdrawal service/page/test is missing"]}
     },
     {
       "name": "系统管理", "requirementIds": ["PC-163", "PC-164", "PC-165", "PC-166", "PC-167", "PC-168"], "owner": "平台安全与系统管理员",
-      "route": ["/system", "/operations/domain/15"], "pageStrategy": "Extend SystemPage for parameters, RBAC, menu/admin lifecycle and immutable operation-log query with least privilege.",
+      "route": ["/system", "/operations/domains/system-management"], "pageStrategy": "Extend SystemPage for parameters, RBAC, menu/admin lifecycle and immutable operation-log query with least privilege.",
       "existingPages": ["SystemPage", "RequirementLedgerPage"], "services": ["adminService", "requirementLedgerService", "planned:systemGovernanceService"], "mocks": ["data.ts"],
       "ACs": ["version global parameters", "manage roles/permissions/menu/admin", "enforce least privilege", "query non-editable operation logs"],
       "tests": ["existing:pcRequirementRegistry.test.ts", "planned:systemGovernanceService.test.ts", "planned:SystemPage RBAC/UI test"],
@@ -155,7 +155,7 @@
     },
     {
       "name": "到家服务管理", "requirementIds": ["PC-169", "PC-170", "PC-171", "PC-172"], "owner": "到家服务运营与售后负责人",
-      "route": ["/operations/domain/16", "planned:/home-services"], "pageStrategy": "Dedicated service catalog/order/fulfillment/after-sale page for the V1.4 PC scope; do not inherit the old document's statement that home service is deferred.",
+      "route": ["/operations/domains/home-services", "planned:/home-services"], "pageStrategy": "Dedicated service catalog/order/fulfillment/after-sale page for the V1.4 PC scope; do not inherit the old document's statement that home service is deferred.",
       "existingPages": ["RequirementLedgerPage", "FinancialWorkbenchPage", "RefundPage"], "services": ["requirementLedgerService", "planned:homeServiceOperationsService", "planned:refund adapter"], "mocks": ["planned:data-home-services"],
       "ACs": ["manage service catalog", "query service orders", "audit assignment/fulfillment", "process after-sale refund through finance-safe boundary"],
       "tests": ["existing:pcRequirementRegistry.test.ts", "planned:homeServiceOperationsService.test.ts", "planned:HomeServicePage journey/UI test"],

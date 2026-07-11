@@ -62,8 +62,8 @@ export default function App() {
               <Route index element={<Navigate to="/dashboard" replace />} />
               <Route path="/dashboard" element={<DashboardPage />} />
               <Route path="/operations" element={<RequirementLedgerPage />} />
-              <Route path="/operations/domain/:domainIndex" element={<RequirementLedgerPage />} />
-              <Route path="/operations/:requirementId" element={<RequirementLedgerPage />} />
+              <Route path="/operations/domains/:domainSlug" element={<RequirementLedgerPage />} />
+              <Route path="/operations/requirements/:requirementId" element={<RequirementLedgerPage />} />
               <Route path="/financial-workbench" element={<FinancialWorkbenchPage />} />
               <Route path="/users" element={<UserPage />} />
               <Route path="/categories" element={<CategoryPage />} />

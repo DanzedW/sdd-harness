@@ -20,7 +20,7 @@ import { Avatar, Button, Layout, Menu, Space, Typography } from "antd";
 import type { MenuProps } from "antd";
 import { useMemo, useState } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import { PC_REQUIREMENT_GROUPS } from "../registry/pcRequirementRegistry";
+import { DOMAIN_CATALOG } from "../registry/domainCatalog";
 
 const { Header, Sider, Content } = Layout;
 
@@ -32,7 +32,7 @@ const menuItems: MenuProps["items"] = [
     label: "PC 功能台账（17域）",
     children: [
       { key: "/operations", label: "全部 93 条" },
-      ...PC_REQUIREMENT_GROUPS.map((label, index) => ({ key: `/operations/domain/${index}`, label })),
+      ...DOMAIN_CATALOG.map((domain) => ({ key: domain.route, label: domain.name })),
       { key: "/financial-workbench", label: "资金专用工作台" },
     ],
   },

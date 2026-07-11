@@ -17,7 +17,7 @@ const FINANCIAL_PATTERN = /支付|退款|分账|结算|对账|资金|金额|费�
 export const PC_REQUIREMENTS: readonly PcRequirement[] = Object.freeze(
   source.requirements.map((item) => ({
     ...item,
-    route: `/operations/${item.id.toLowerCase()}`,
+    route: `/operations/requirements/${item.id.toLowerCase()}`,
     page: FINANCIAL_PATTERN.test(`${item.group}${item.module}${item.detail}`) ? ("financial" as const) : ("ledger" as const),
   })),
 );
