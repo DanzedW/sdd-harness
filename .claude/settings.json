@@ -1,0 +1,115 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tar xzf *)",
+      "Read(//tmp/**)",
+      "Bash(mkdir -p /tmp/sdd-4d-harness)",
+      "Read(//tmp/sdd-4d-harness/package/**)",
+      "Bash(mkdir -p /tmp/sdd-master-harness)",
+      "Read(//tmp/sdd-master-harness/package/**)",
+      "Read(//tmp/sdd-4d-harness/package/bin/**)",
+      "Read(//tmp/sdd-4d-harness/package/lib/**)",
+      "Bash(cat /tmp/sdd-4d-harness/package/package.json)",
+      "Bash(cat /tmp/sdd-4d-harness/package/bin/cli.js)",
+      "Bash(echo \"=== Templates diff ===\" && diff -rq /tmp/sdd-master-harness/package/templates/ /tmp/sdd-4d-harness/package/templates/ 2>&1)",
+      "Read(//tmp/sdd-4d-harness/package/templates/sdd-harness/**)",
+      "Read(//tmp/sdd-master-harness/package/templates/**)",
+      "Bash(diff /tmp/sdd-master-harness/package/templates/sdd-harness/workflow-frame.yaml /tmp/sdd-4d-harness/package/templates/sdd-harness/workflow-frame.yaml 2>&1)",
+      "Read(//tmp/sdd-master-harness/package/templates/sdd-harness/**)",
+      "Bash(diff /tmp/sdd-master-harness/package/templates/claude/hooks/stop-gate.sh /tmp/sdd-4d-harness/package/templates/claude/hooks/stop-gate.sh 2>&1 | head -80)",
+      "Read(//tmp/sdd-master-harness/package/templates/claude/hooks/**)",
+      "Bash(cat /tmp/sdd-4d-harness/package/templates/sdd-harness/4d/domain-boundary.md)",
+      "Read(//tmp/sdd-4d-harness/package/templates/sdd-harness/4d/**)",
+      "Bash(cat /tmp/sdd-4d-harness/package/templates/sdd-harness/4d/behavior-scenarios.md)",
+      "Bash(cat /tmp/sdd-4d-harness/package/templates/sdd-harness/4d/traceability-matrix.md)",
+      "Bash(cp \"D:/projects/aiworkflow/raw/experiments/digital-life-sdd-ab-20260711/workspaces/a-master/.claude/settings.json\" \"d:/projects/aiworkflow/raw/experiments/digital-life-sdd-ab-20260711/workspaces/b-4d/.claude/settings.json\" && echo \"Done: settings.json copied\")",
+      "Bash(mkdir -p \"d:/projects/aiworkflow/raw/experiments/digital-life-sdd-ab-20260711/workspaces/b-4d/scripts\" && cp \"D:/projects/aiworkflow/raw/experiments/digital-life-sdd-ab-20260711/workspaces/a-master/scripts/generate-traceability.mjs\" \"d:/projects/aiworkflow/raw/experiments/digital-life-sdd-ab-20260711/workspaces/b-4d/scripts/\" && echo \"Done: generate-traceability.mjs copied\")",
+      "Bash(rm -rf \"d:/projects/aiworkflow/raw/experiments/digital-life-sdd-ab-20260711/workspaces/b-4d/apps/admin-web/src/registry\" && mkdir -p \"d:/projects/aiworkflow/raw/experiments/digital-life-sdd-ab-20260711/workspaces/b-4d/apps/admin-web/src/operations\" && cp \"D:/projects/aiworkflow/raw/experiments/digital-life-sdd-ab-20260711/workspaces/a-master/apps/admin-web/src/operations/\"*.ts \"d:/projects/aiworkflow/raw/experiments/digital-life-sdd-ab-20260711/workspaces/b-4d/apps/admin-web/src/operations/\" && echo \"Done: registry/ deleted, operations/ copied\" && ls \"d:/projects/aiworkflow/raw/experiments/digital-life-sdd-ab-20260711/workspaces/b-4d/apps/admin-web/src/operations/\")",
+      "Bash(rm -f \"d:/projects/aiworkflow/raw/experiments/digital-life-sdd-ab-20260711/workspaces/b-4d/apps/admin-web/src/services/requirementLedgerService.ts\" \"d:/projects/aiworkflow/raw/experiments/digital-life-sdd-ab-20260711/workspaces/b-4d/apps/admin-web/src/services/requirementLedgerService.test.ts\" && cp \"D:/projects/aiworkflow/raw/experiments/digital-life-sdd-ab-20260711/workspaces/a-master/apps/admin-web/src/services/operationsService.ts\" \"D:/projects/aiworkflow/raw/experiments/digital-life-sdd-ab-20260711/workspaces/a-master/apps/admin-web/src/services/operationsService.test.ts\" \"d:/projects/aiworkflow/raw/experiments/digital-life-sdd-ab-20260711/workspaces/b-4d/apps/admin-web/src/services/\" && echo \"Done: services replaced\")",
+      "Bash(rm -f \"d:/projects/aiworkflow/raw/experiments/digital-life-sdd-ab-20260711/workspaces/b-4d/apps/admin-web/src/pages/RequirementLedgerPage.tsx\" && cp \"D:/projects/aiworkflow/raw/experiments/digital-life-sdd-ab-20260711/workspaces/a-master/apps/admin-web/src/pages/OperationsRegistryPage.tsx\" \"d:/projects/aiworkflow/raw/experiments/digital-life-sdd-ab-20260711/workspaces/b-4d/apps/admin-web/src/pages/\" && echo \"Done: pages replaced\")",
+      "Bash(pnpm --filter admin-web test --run)",
+      "Bash(pnpm typecheck *)",
+      "Bash(pnpm build *)",
+      "Bash(git checkout *)",
+      "Bash(git add *)",
+      "Bash(git check-ignore *)"
+    ],
+    "additionalDirectories": [
+      "D:\\projects\\aiworkflow\\raw\\experiments\\digital-life-sdd-ab-20260711\\workspaces\\a-master\\.claude",
+      "D:\\projects\\aiworkflow\\raw\\experiments\\digital-life-sdd-ab-20260711\\workspaces\\a-master\\scripts",
+      "D:\\projects\\aiworkflow\\raw\\experiments\\digital-life-sdd-ab-20260711\\workspaces\\a-master\\apps\\admin-web\\src\\operations",
+      "D:\\projects\\aiworkflow\\raw\\experiments\\digital-life-sdd-ab-20260711\\workspaces\\a-master\\apps\\admin-web\\src\\services",
+      "D:\\projects\\aiworkflow\\raw\\experiments\\digital-life-sdd-ab-20260711\\workspaces\\a-master\\apps\\admin-web\\src\\pages"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PROJECT_DIR}/.sdd/hooks/session-start.sh"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PROJECT_DIR}/.sdd/hooks/pre-tool-gate.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PROJECT_DIR}/.sdd/hooks/post-tool-tracker.sh"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "manual|auto",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PROJECT_DIR}/.sdd/hooks/pre-compact-save.sh"
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PROJECT_DIR}/.sdd/hooks/subagent-stop-contract.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PROJECT_DIR}/.sdd/hooks/stop-gate.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "ID=$(cat .sdd/active-run 2>/dev/null); STAGE=$(grep current .sdd/runs/$ID/workflow-frame.yaml 2>/dev/null | awk \"{print \\$2}\"); echo \"SDD:${STAGE:-idle}\""
+  }
+}

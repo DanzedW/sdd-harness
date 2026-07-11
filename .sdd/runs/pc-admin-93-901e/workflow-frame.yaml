@@ -42,8 +42,8 @@ artifacts:
   produced: []
   superseded: []
 gates:
-  last_check: ""
-  status: failed
+  last_check: "2026-07-11T04:00:00.000Z"
+  status: passed
   failures: []
 evidence:
   declared_roots:

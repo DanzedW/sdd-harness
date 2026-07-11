@@ -20,7 +20,7 @@ import { Avatar, Button, Layout, Menu, Space, Typography } from "antd";
 import type { MenuProps } from "antd";
 import { useMemo, useState } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import { DOMAIN_CATALOG } from "../registry/domainCatalog";
+import { DOMAIN_CATALOG } from "../operations/domainCatalog";
 
 const { Header, Sider, Content } = Layout;
 

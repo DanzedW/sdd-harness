@@ -32,7 +32,8 @@ import ShopPage from "./pages/ShopPage";
 import { SystemPage } from "./pages/SystemPage";
 import { UserPage } from "./pages/UserPage";
 import { ErrorBoundary } from "./components/ErrorBoundary";
-import { RequirementLedgerPage } from "./pages/RequirementLedgerPage";
+import { OperationsRegistryPage } from "./pages/OperationsRegistryPage";
+import { DOMAIN_CATALOG } from "./operations/domainCatalog";
 import { FinancialWorkbenchPage } from "./pages/FinancialWorkbenchPage";
 
 function RequireAuth() {
@@ -61,9 +62,10 @@ export default function App() {
             <Route element={<AdminLayout />}>
               <Route index element={<Navigate to="/dashboard" replace />} />
               <Route path="/dashboard" element={<DashboardPage />} />
-              <Route path="/operations" element={<RequirementLedgerPage />} />
-              <Route path="/operations/domains/:domainSlug" element={<RequirementLedgerPage />} />
-              <Route path="/operations/requirements/:requirementId" element={<RequirementLedgerPage />} />
+              <Route path="/operations" element={<OperationsRegistryPage />} />
+              {DOMAIN_CATALOG.map((domain) => (
+                <Route key={domain.route} path={domain.route} element={<OperationsRegistryPage />} />
+              ))}
               <Route path="/financial-workbench" element={<FinancialWorkbenchPage />} />
               <Route path="/users" element={<UserPage />} />
               <Route path="/categories" element={<CategoryPage />} />

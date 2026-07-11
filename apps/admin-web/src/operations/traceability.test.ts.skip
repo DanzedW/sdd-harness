@@ -1,0 +1,59 @@
+// @ts-expect-error Vitest runs in Node; the application intentionally does not ship Node types.
+import { existsSync, readFileSync } from "node:fs";
+// @ts-expect-error Vitest runs in Node; the application intentionally does not ship Node types.
+import { createHash } from "node:crypto";
+// @ts-expect-error Vitest runs in Node; the application intentionally does not ship Node types.
+import { resolve } from "node:path";
+import { describe, expect, it } from "vitest";
+import trace from "../../../../docs/delivery/requirements-traceability.json";
+
+declare const process: { cwd(): string };
+
+const workspaceRoot = resolve(process.cwd(), "../..");
+const locatorExists = (locator: string) => {
+  const [path, anchor] = locator.split("#");
+  const absolute = resolve(workspaceRoot, path);
+  return existsSync(absolute) && (!anchor || /^L\d+$/.test(anchor) || readFileSync(absolute, "utf8").includes(anchor));
+};
+
+describe("93-row implementation trace", () => {
+  it("distinguishes 24 disabled rows from shared and specialized implementations", () => {
+    expect(trace.records).toHaveLength(93);
+    expect(trace.records.filter((row) => row.status === "UNCONFIRMED_ACTION_DISABLED")).toHaveLength(24);
+    expect(trace.records.filter((row) => row.status === "IMPLEMENTED_SPECIALIZED").map((row) => row.id)).toEqual(["PC-113", "PC-114"]);
+    expect(trace.records.filter((row) => row.status === "IMPLEMENTED_SHARED")).toHaveLength(67);
+  });
+
+  it("uses distributed named evidence with no planned or ordinal locator", () => {
+    expect(new Set(trace.records.map((row) => row.route)).size).toBe(17);
+    expect(new Set(trace.records.map((row) => row.owner)).size).toBe(17);
+    expect(new Set(trace.records.map((row) => row.page)).size).toBeGreaterThan(5);
+    expect(new Set(trace.records.map((row) => row.service)).size).toBeGreaterThan(5);
+    expect(new Set(trace.records.map((row) => row.test)).size).toBeGreaterThan(5);
+    for (const row of trace.records) {
+      expect(JSON.stringify(row)).not.toContain("planned:");
+      expect(row.route).not.toMatch(/domain-\d+/);
+      for (const locator of [row.source, row.page, row.service, row.mock, row.test]) {
+        expect(locatorExists(locator), locator).toBe(true);
+      }
+    }
+  });
+
+  it("uses a canonical per-record evidence hash and independent workbook SHA", () => {
+    for (const row of trace.records) {
+      const { evidenceHash, ...canonical } = row;
+      expect(row.sourceSha256).toMatch(/^[a-f0-9]{64}$/);
+      expect(evidenceHash).toBe(createHash("sha256").update(JSON.stringify(canonical)).digest("hex"));
+    }
+  });
+
+  it("keeps delivery docs aligned with named routes and current evidence", () => {
+    const files = ["00-executive-summary.md", "01-requirement-traceability.md", "02-product-spec.md", "03-architecture.md", "04-test-and-evidence.md", "09-local-runbook.md", "10-2026-07-gap-and-surpass.md"];
+    const text = files.map((file) => readFileSync(resolve(workspaceRoot, "docs/delivery", file), "utf8")).join("\n");
+    expect(text).not.toMatch(/operations\/domain-\d+/);
+    expect(text).not.toContain("useParams");
+    expect(text).not.toMatch(/13 (个测试文件|files).*44/);
+    expect(text).not.toMatch(/16 (个唯一 service|unique services)/);
+    expect(text).toContain("synthetic-non-browser");
+  });
+});

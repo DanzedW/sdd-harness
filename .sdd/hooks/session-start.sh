@@ -41,7 +41,7 @@ echo "Goal: ${GOAL}"
 echo "Workflow frame: ${WF_FILE}"
 
 # ── 产出状态摘要（内联检查，不依赖 CLI）──────────────────
-DELIVERABLE_SUMMARY=$(SDD_PROJECT_DIR="${SDD_PROJECT_DIR}" CHANGE_ID="${CHANGE_ID}" CURRENT_STAGE="${CURRENT_STAGE}" python3 -c "
+DELIVERABLE_SUMMARY=$(SDD_PROJECT_DIR="${SDD_PROJECT_DIR}" CHANGE_ID="${CHANGE_ID}" CURRENT_STAGE="${CURRENT_STAGE}" python -c "
 import os, json, sys
 
 project_dir = os.environ.get('SDD_PROJECT_DIR', '')

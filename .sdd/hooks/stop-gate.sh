@@ -69,7 +69,7 @@ fi
 # ── 检查 2: deliverable 独立验证（内联，不依赖 CLI）─────
 # 不信 agent 自声明的 gate status——独立检查产出真实存在。
 
-DELIVERABLE_RESULT=$(SDD_PROJECT_DIR="${SDD_PROJECT_DIR}" CHANGE_ID="${CHANGE_ID}" CURRENT_STAGE="${CURRENT_STAGE}" python3 -c "
+DELIVERABLE_RESULT=$(SDD_PROJECT_DIR="${SDD_PROJECT_DIR}" CHANGE_ID="${CHANGE_ID}" CURRENT_STAGE="${CURRENT_STAGE}" python -c "
 import os, sys, json
 
 project_dir = os.environ.get('SDD_PROJECT_DIR', '')
@@ -186,10 +186,10 @@ if [ -z "$DELIVERABLE_RESULT" ]; then
 fi
 
 # 解析结果
-REQUIRED_FAILS=$(echo "$DELIVERABLE_RESULT" | python3 -c "import sys,json; d=json.load(sys.stdin); print('\n'.join(d['required_fails']))" 2>/dev/null)
-REQUIRED_COUNT=$(echo "$DELIVERABLE_RESULT" | python3 -c "import sys,json; d=json.load(sys.stdin); print(len(d['required_fails']))" 2>/dev/null)
-EXPECTED_FAILS=$(echo "$DELIVERABLE_RESULT" | python3 -c "import sys,json; d=json.load(sys.stdin); print('\n'.join(d['expected_fails']))" 2>/dev/null)
-EXPECTED_COUNT=$(echo "$DELIVERABLE_RESULT" | python3 -c "import sys,json; d=json.load(sys.stdin); print(len(d['expected_fails']))" 2>/dev/null)
+REQUIRED_FAILS=$(echo "$DELIVERABLE_RESULT" | python -c "import sys,json; d=json.load(sys.stdin); print('\n'.join(d['required_fails']))" 2>/dev/null)
+REQUIRED_COUNT=$(echo "$DELIVERABLE_RESULT" | python -c "import sys,json; d=json.load(sys.stdin); print(len(d['required_fails']))" 2>/dev/null)
+EXPECTED_FAILS=$(echo "$DELIVERABLE_RESULT" | python -c "import sys,json; d=json.load(sys.stdin); print('\n'.join(d['expected_fails']))" 2>/dev/null)
+EXPECTED_COUNT=$(echo "$DELIVERABLE_RESULT" | python -c "import sys,json; d=json.load(sys.stdin); print(len(d['expected_fails']))" 2>/dev/null)
 
 # required 缺失 → 硬性拦截
 if [ "$REQUIRED_COUNT" -gt 0 ]; then
