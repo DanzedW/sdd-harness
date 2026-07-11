@@ -26,16 +26,7 @@ const { Header, Sider, Content } = Layout;
 
 const menuItems: MenuProps["items"] = [
   { key: "/dashboard", icon: <DashboardOutlined />, label: "首页" },
-  {
-    key: "pc-ledger",
-    icon: <BarsOutlined />,
-    label: "PC 功能台账（17域）",
-    children: [
-      { key: "/operations", label: "全部 93 条" },
-      ...DOMAIN_CATALOG.map((domain) => ({ key: domain.route, label: domain.name })),
-      { key: "/financial-workbench", label: "资金专用工作台" },
-    ],
-  },
+  { key: "/commerce-workbench", icon: <ShopOutlined />, label: "电商运营工作台" },
   {
     key: "merchant",
     icon: <BankOutlined />,
@@ -99,6 +90,16 @@ const menuItems: MenuProps["items"] = [
     ],
   },
   {
+    key: "pc-ledger",
+    icon: <FileTextOutlined />,
+    label: "需求与交付证据",
+    children: [
+      { key: "/operations", label: "PC 需求追踪（93 条）" },
+      ...DOMAIN_CATALOG.map((domain) => ({ key: domain.route, label: domain.name })),
+      { key: "/financial-workbench", label: "资金规则说明" },
+    ],
+  },
+  {
     key: "system",
     icon: <AppstoreOutlined />,
     label: "系统管理",
@@ -111,6 +112,7 @@ const menuItems: MenuProps["items"] = [
 ];
 
 const routeParentKey: Record<string, string> = {
+  "/commerce-workbench": "",
   "/operations": "pc-ledger",
   "/financial-workbench": "pc-ledger",
   "/merchants": "merchant",
@@ -137,6 +139,7 @@ const routeParentKey: Record<string, string> = {
   "/users": "system",
   "/system": "system",
   "/contracts": "system",
+  ...Object.fromEntries(DOMAIN_CATALOG.map((domain) => [domain.route, "pc-ledger"])),
 };
 
 function flattenMenuKeys(items: NonNullable<MenuProps["items"]>) {
