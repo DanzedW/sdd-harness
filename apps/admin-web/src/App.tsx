@@ -32,6 +32,8 @@ import ShopPage from "./pages/ShopPage";
 import { SystemPage } from "./pages/SystemPage";
 import { UserPage } from "./pages/UserPage";
 import { ErrorBoundary } from "./components/ErrorBoundary";
+import { RequirementLedgerPage } from "./pages/RequirementLedgerPage";
+import { FinancialWorkbenchPage } from "./pages/FinancialWorkbenchPage";
 
 function RequireAuth() {
   const token = localStorage.getItem("admin-token");
@@ -59,6 +61,10 @@ export default function App() {
             <Route element={<AdminLayout />}>
               <Route index element={<Navigate to="/dashboard" replace />} />
               <Route path="/dashboard" element={<DashboardPage />} />
+              <Route path="/operations" element={<RequirementLedgerPage />} />
+              <Route path="/operations/domain/:domainIndex" element={<RequirementLedgerPage />} />
+              <Route path="/operations/:requirementId" element={<RequirementLedgerPage />} />
+              <Route path="/financial-workbench" element={<FinancialWorkbenchPage />} />
               <Route path="/users" element={<UserPage />} />
               <Route path="/categories" element={<CategoryPage />} />
               <Route path="/products" element={<ProductPage />} />

@@ -20,11 +20,22 @@ import { Avatar, Button, Layout, Menu, Space, Typography } from "antd";
 import type { MenuProps } from "antd";
 import { useMemo, useState } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { PC_REQUIREMENT_GROUPS } from "../registry/pcRequirementRegistry";
 
 const { Header, Sider, Content } = Layout;
 
 const menuItems: MenuProps["items"] = [
   { key: "/dashboard", icon: <DashboardOutlined />, label: "首页" },
+  {
+    key: "pc-ledger",
+    icon: <BarsOutlined />,
+    label: "PC 功能台账（17域）",
+    children: [
+      { key: "/operations", label: "全部 93 条" },
+      ...PC_REQUIREMENT_GROUPS.map((label, index) => ({ key: `/operations/domain/${index}`, label })),
+      { key: "/financial-workbench", label: "资金专用工作台" },
+    ],
+  },
   {
     key: "merchant",
     icon: <BankOutlined />,
@@ -100,6 +111,8 @@ const menuItems: MenuProps["items"] = [
 ];
 
 const routeParentKey: Record<string, string> = {
+  "/operations": "pc-ledger",
+  "/financial-workbench": "pc-ledger",
   "/merchants": "merchant",
   "/merchants/audit": "merchant",
   "/products": "goods",
