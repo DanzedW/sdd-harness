@@ -1,0 +1,12 @@
+{
+  "name": "digital-life-project-starter",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm --filter admin-web dev",
+    "build": "pnpm --filter admin-web build",
+    "typecheck": "pnpm --filter admin-web typecheck",
+    "preview": "pnpm --filter admin-web preview"
+  }
+}

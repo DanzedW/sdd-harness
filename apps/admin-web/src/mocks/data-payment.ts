@@ -1,0 +1,68 @@
+// mocks/data-payment.ts — 支付 Mock
+
+import { PaymentStatus } from "../domain";
+import type { Payment } from "../domain";
+
+// === 支付单（覆盖成功/失败/超时）===
+export const payments: Payment[] = [
+  {
+    id: "pay-1",
+    paymentId: "PAY-001",
+    orderId: "ORD-20260620-005",
+    paymentMethod: "微信",
+    channel: "小程序",
+    transactionScene: "ONLINE",
+    cashPaidAmount: 89700,
+    channelFeeAmount: 897,
+    totalAmount: 89700,
+    bankTradeNo: "BANK-TXN-20260620100500",
+    bankStatus: "SUCCESS",
+    bankFee: 897,              // 手续费 8.97元
+    bankSettledAt: "2026-06-20 10:06:00",
+    status: PaymentStatus.SUCCESS,
+    callbackReceivedAt: "2026-06-20 10:05:30",
+    idempotentKey: "IDM-ORD-20260620-005-WECHAT",
+    updatedAt: "2026-06-20 10:05:30",
+    createdAt: "2026-06-20 10:05:00",
+  },
+  {
+    id: "pay-2",
+    paymentId: "PAY-002",
+    orderId: "ORD-20260628-003",
+    paymentMethod: "B扫C",
+    channel: "线下扫码",
+    transactionScene: "OFFLINE",
+    cashPaidAmount: 0,
+    channelFeeAmount: 0,
+    totalAmount: 84700,
+    bankTradeNo: "BANK-TXN-20260628180000",
+    bankStatus: "FAILED",
+    bankFee: 0,
+    bankSettledAt: "",
+    status: PaymentStatus.FAILED,
+    callbackReceivedAt: "2026-06-28 18:01:00",
+    idempotentKey: "IDM-ORD-20260628-003-BSCANC",
+    updatedAt: "2026-06-28 18:01:00",
+    createdAt: "2026-06-28 18:00:00",
+  },
+  {
+    id: "pay-3",
+    paymentId: "PAY-003",
+    orderId: "ORD-20260629-002",
+    paymentMethod: "网银",
+    channel: "App",
+    transactionScene: "ONLINE",
+    cashPaidAmount: 0,
+    channelFeeAmount: 0,
+    totalAmount: 500000,
+    bankTradeNo: "",
+    bankStatus: "",
+    bankFee: 0,
+    bankSettledAt: "",
+    status: PaymentStatus.TIMEOUT,
+    callbackReceivedAt: "",
+    idempotentKey: "IDM-ORD-20260629-002-NETBANK",
+    updatedAt: "2026-06-29 12:05:00",
+    createdAt: "2026-06-29 12:00:00",
+  },
+];

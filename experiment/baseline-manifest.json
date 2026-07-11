@@ -1,0 +1,540 @@
+{
+  "files": [
+    {
+      "bytes": 314,
+      "path": ".gitignore",
+      "sha256": "0f56d778d1af75c746aca43f56b5a334c5402cd531d9d9357799b91e21d75af1"
+    },
+    {
+      "bytes": 412,
+      "path": "AGENTS.md",
+      "sha256": "5d8afa74efc6d69f38a6c1cea80b07cc854d107596ae9cb5ca0ecd7a28e46aaa"
+    },
+    {
+      "bytes": 326,
+      "path": "apps/admin-web/index.html",
+      "sha256": "1c74584d43e1599f909a607dae5a475fc83cc3f3e943b7f6806dd8de3ae1cbac"
+    },
+    {
+      "bytes": 733,
+      "path": "apps/admin-web/package.json",
+      "sha256": "64dd9a48db17b281bada0f7a8b5e8be7756d5b4716e5c3c9f3d259b9176e994a"
+    },
+    {
+      "bytes": 7272,
+      "path": "apps/admin-web/src/App.tsx",
+      "sha256": "1dc1256717ef8bad2ccb0ca3d9cec219bf3692d3a45c597ff138c728cb080040"
+    },
+    {
+      "bytes": 8573,
+      "path": "apps/admin-web/src/components/CrudTablePage.tsx",
+      "sha256": "7d28e6c9cc8ad73b629e32b7f140ffed6c26b8823461454f9b6325114dd6aa58"
+    },
+    {
+      "bytes": 4086,
+      "path": "apps/admin-web/src/components/DeductionPicker.tsx",
+      "sha256": "3bae5ec68095d0f0728e885c36d4f8f96645f8c5a8a5bafd425272bde22632eb"
+    },
+    {
+      "bytes": 1254,
+      "path": "apps/admin-web/src/components/ErrorBoundary.tsx",
+      "sha256": "77d82d50c4659a22fd29b9121b6ce57f6c91052c5010446e24733cb14008d236"
+    },
+    {
+      "bytes": 927,
+      "path": "apps/admin-web/src/components/backoffice/BackofficePage.tsx",
+      "sha256": "29dc50732f969ff1b9cb5131f869b0834d0c01420156a012b5d73f98ae766b6f"
+    },
+    {
+      "bytes": 532,
+      "path": "apps/admin-web/src/components/backoffice/DetailModal.tsx",
+      "sha256": "8f024ab16767d9b0763fc67b47d0812007393369ab8d528278dba7ad7200a3c8"
+    },
+    {
+      "bytes": 385,
+      "path": "apps/admin-web/src/components/backoffice/FormSection.tsx",
+      "sha256": "dfec784ca48f8b6ef6a184f37c9a4818e1b8f6e47fe5c3e54016f3e999b524b9"
+    },
+    {
+      "bytes": 1207,
+      "path": "apps/admin-web/src/components/backoffice/InlineFilterBar.tsx",
+      "sha256": "362d56a2ae3b33dc9fa2bd15052d34a7a2c65e8d1f54ac5d8c82c6524b9f922b"
+    },
+    {
+      "bytes": 613,
+      "path": "apps/admin-web/src/components/backoffice/LedgerTable.tsx",
+      "sha256": "4322cff8ebba8611b9a0f5bc85c37773aba21f7e41538af7ba61a1bd38a0eedb"
+    },
+    {
+      "bytes": 625,
+      "path": "apps/admin-web/src/components/backoffice/PageActions.tsx",
+      "sha256": "2cb7c386d02fea595266c2a9282fed48af582b934e0adc8455d5793ac82c49a8"
+    },
+    {
+      "bytes": 1312,
+      "path": "apps/admin-web/src/constants/orderStatusMachine.ts",
+      "sha256": "89005fc7adff1687186b156a22a8364ae689fbf26f8348df3d916f7f74b240a2"
+    },
+    {
+      "bytes": 909,
+      "path": "apps/admin-web/src/domain/ad.ts",
+      "sha256": "4cbf89f9f795b7f5f682f384cac4ed72859ceb5e28fcef1d227ef50006ee6c79"
+    },
+    {
+      "bytes": 469,
+      "path": "apps/admin-web/src/domain/admin.ts",
+      "sha256": "04339ce2e7a65b0e306a809ffc6efdf61bd586097b73b6da8e52dcd433a6d441"
+    },
+    {
+      "bytes": 802,
+      "path": "apps/admin-web/src/domain/audit.ts",
+      "sha256": "24e4e4f22f902db2cb4b85ca47d678fd32d0b8647b3eefbccd09582a3ffe1b22"
+    },
+    {
+      "bytes": 1107,
+      "path": "apps/admin-web/src/domain/base.ts",
+      "sha256": "ee7461c3f6aa3458e69cda2f5bb2322a7b829784a64e7ecbeefc1a4382d517b8"
+    },
+    {
+      "bytes": 3398,
+      "path": "apps/admin-web/src/domain/coin.ts",
+      "sha256": "46b7d0685d85f76fe2cf9db48463546f87d046176356fd32820e481666d7a5e5"
+    },
+    {
+      "bytes": 3386,
+      "path": "apps/admin-web/src/domain/coupon.ts",
+      "sha256": "267bec559eb60dc992e04232783776b8ccf97f9798d70f450c3e0764744f6780"
+    },
+    {
+      "bytes": 1503,
+      "path": "apps/admin-web/src/domain/funding.ts",
+      "sha256": "289ed706d9e171343eabd1487746c94bb62c368798971d9a72da3d0ea6096511"
+    },
+    {
+      "bytes": 432,
+      "path": "apps/admin-web/src/domain/index.ts",
+      "sha256": "6313f3e14d5e9dfd3e1703e7216bc640440cb71ccf546e5a4433721077643acc"
+    },
+    {
+      "bytes": 1304,
+      "path": "apps/admin-web/src/domain/ledger.ts",
+      "sha256": "f81ce059ab1289379622c2253a7b97b4aaa6b2771115cd3ef91bdc8142ae01f6"
+    },
+    {
+      "bytes": 4412,
+      "path": "apps/admin-web/src/domain/merchant.ts",
+      "sha256": "b18daaa1f349190d673953e7f0db070be294fd40d20c7469378a55a3fe1b5ab9"
+    },
+    {
+      "bytes": 4299,
+      "path": "apps/admin-web/src/domain/order.ts",
+      "sha256": "229f87b17ecaf58cffa12b5fe6233db736512a92653e8bbae36df9cb0063cceb"
+    },
+    {
+      "bytes": 2503,
+      "path": "apps/admin-web/src/domain/payment.ts",
+      "sha256": "e7f8cee976dda6c221f2fb0bf90dec92d320a0641ccce500e4340a93077151c0"
+    },
+    {
+      "bytes": 1661,
+      "path": "apps/admin-web/src/domain/product.ts",
+      "sha256": "acb24b67b1da0ba6e58b08bdeff509a4bfa31a71e45546de931c6ec6719e6a9b"
+    },
+    {
+      "bytes": 1168,
+      "path": "apps/admin-web/src/domain/rates.test.ts",
+      "sha256": "13d3b64db46c3e430cca1918e30b59f188420bd62da1195e1055faec48b893e3"
+    },
+    {
+      "bytes": 1119,
+      "path": "apps/admin-web/src/domain/reconciliation.ts",
+      "sha256": "abdd20493ef83a15088cc118038e7eb74e80c924a873e32c94b45898f6ef9638"
+    },
+    {
+      "bytes": 1596,
+      "path": "apps/admin-web/src/domain/settlement.ts",
+      "sha256": "4656ec3bd6feb8144cb2d7df0a3b8b7a222f2bc0eb4af7fd9881aea4c88e0a02"
+    },
+    {
+      "bytes": 249,
+      "path": "apps/admin-web/src/domain/user.ts",
+      "sha256": "f968e41041bed451d351c6b89791d32a7fe8f24d6a34e3693fc727c62653f44e"
+    },
+    {
+      "bytes": 8494,
+      "path": "apps/admin-web/src/domain/v03-domain.test.ts",
+      "sha256": "ab16f7abe0e46fe4ee7eedb58ea0d49d074ada3f16fc7f45ca538e761a143145"
+    },
+    {
+      "bytes": 6560,
+      "path": "apps/admin-web/src/layouts/AdminLayout.tsx",
+      "sha256": "3624346e77d08872f4858f25dc64f17bf7cf20e2bffba5ead34e3d1f7d415d32"
+    },
+    {
+      "bytes": 344,
+      "path": "apps/admin-web/src/main.tsx",
+      "sha256": "1336866af86d78319bbf232dd3f6eacffa412698d4dcb6d2dc5cfdae33bfbdda"
+    },
+    {
+      "bytes": 1724,
+      "path": "apps/admin-web/src/mocks/data-coin.ts",
+      "sha256": "17e4702673188a70a5a08a00553df274fe7b07f2368d3fc7217968a8c59ca319"
+    },
+    {
+      "bytes": 4132,
+      "path": "apps/admin-web/src/mocks/data-coupon.ts",
+      "sha256": "e47f2130b8facc2f200f189104856f61304ca6a47d14cada9b5815ef951a5241"
+    },
+    {
+      "bytes": 2136,
+      "path": "apps/admin-web/src/mocks/data-ledger.ts",
+      "sha256": "7b48afe0401ae8e343951cd8773d0e86c55c81e10f61627e7302f955f87fd260"
+    },
+    {
+      "bytes": 2411,
+      "path": "apps/admin-web/src/mocks/data-merchant-lifecycle.ts",
+      "sha256": "9aac801e748ec03e2633790569b06f8e07476d2ce60cd2104505c0f3cd834f41"
+    },
+    {
+      "bytes": 1915,
+      "path": "apps/admin-web/src/mocks/data-payment.ts",
+      "sha256": "1b903ec309c56600461d1990fdfe0c576d4f63acd8d6412f27b9387b9efae95e"
+    },
+    {
+      "bytes": 1584,
+      "path": "apps/admin-web/src/mocks/data-reconciliation.ts",
+      "sha256": "19011e69d7a7abff4b134d1d97c8391e78c3a2bad5f87b066c270f5af04760bd"
+    },
+    {
+      "bytes": 1769,
+      "path": "apps/admin-web/src/mocks/data-settlement.ts",
+      "sha256": "24dc1349dd86775d6fced54760dbfcb4fec374b65411cbcc55a3493a39c69368"
+    },
+    {
+      "bytes": 6285,
+      "path": "apps/admin-web/src/mocks/data-v03.ts",
+      "sha256": "07153a708b6feca98f8dfd544a422ea8ea01b33c4df0f6630efc947687812370"
+    },
+    {
+      "bytes": 62553,
+      "path": "apps/admin-web/src/mocks/data.ts",
+      "sha256": "9e98f9b351a1fedf9fc8c411226ce255c23fd83192c0f4ae9bafc06d45d0e492"
+    },
+    {
+      "bytes": 584,
+      "path": "apps/admin-web/src/mocks/privacy.test.ts",
+      "sha256": "f8517ff933ce631f76e2976ad53bc976a7562e4efeb00210cb47216e6f5a5d1a"
+    },
+    {
+      "bytes": 9874,
+      "path": "apps/admin-web/src/pages/AdvertisementPage.tsx",
+      "sha256": "d82a452d9990bf6e98b2ccf3db5e189d601bdfc9aab33007fc8bb641a0c2ecb7"
+    },
+    {
+      "bytes": 13491,
+      "path": "apps/admin-web/src/pages/CategoryPage.tsx",
+      "sha256": "e32062283cae79487ed9b025cc1ea4fc91899cc8cb1cdd0985cc2027b4a0537e"
+    },
+    {
+      "bytes": 2438,
+      "path": "apps/admin-web/src/pages/CoinRecordPage.tsx",
+      "sha256": "6d58c4f2175a1a3ec9e93df6b5d48b041ce4bda0aae2a92c3d1c360a9f02bb39"
+    },
+    {
+      "bytes": 2300,
+      "path": "apps/admin-web/src/pages/ContractPage.tsx",
+      "sha256": "298978288aee3af3b14c0d6a73308adcfd6db87932685d7b709aa3832c6214c1"
+    },
+    {
+      "bytes": 4309,
+      "path": "apps/admin-web/src/pages/CouponFundingPoolPage.tsx",
+      "sha256": "5afe289a146231581a90fcd6777e7b0ea1d4b91cc6f93a7206a25916030326fb"
+    },
+    {
+      "bytes": 2610,
+      "path": "apps/admin-web/src/pages/CouponPage.tsx",
+      "sha256": "825b9bcd37124039343d9ecd1cb4a7df03f44f86354ce1b40c0c7b6f6b2226e9"
+    },
+    {
+      "bytes": 10004,
+      "path": "apps/admin-web/src/pages/DashboardPage.tsx",
+      "sha256": "f532bdbd0e690e6f680ef414c82ee8037091a2e79721f98e46f556c6c73b0ff6"
+    },
+    {
+      "bytes": 4247,
+      "path": "apps/admin-web/src/pages/FundingPoolPage.tsx",
+      "sha256": "76316624f712de5f26cc8f9b184a236a36da76a155f722d1bc0c148db23208b3"
+    },
+    {
+      "bytes": 2408,
+      "path": "apps/admin-web/src/pages/LedgerPage.tsx",
+      "sha256": "e6c25c9c843dd0d4c0a796ab53647a336b14c55000ca2e337bc292765e2c0a02"
+    },
+    {
+      "bytes": 2043,
+      "path": "apps/admin-web/src/pages/LoginPage.tsx",
+      "sha256": "e261d9e47e424a2574185164e2227edca3f8156577e4cb1a208f4e805b21be89"
+    },
+    {
+      "bytes": 8470,
+      "path": "apps/admin-web/src/pages/LogisticsPage.tsx",
+      "sha256": "7638c482d6344aef50e28f0befcfee8186745c62f569775e7e956e790fa74a47"
+    },
+    {
+      "bytes": 15170,
+      "path": "apps/admin-web/src/pages/MerchantPage.tsx",
+      "sha256": "dd606f2de95e39730807de7e5ce4ffc5bd04bfe001515182a09c83c3f45b08ed"
+    },
+    {
+      "bytes": 20027,
+      "path": "apps/admin-web/src/pages/OrderPage.tsx",
+      "sha256": "55c6452539f724070b92c5240ad97408f2e214956e376f984c4d0afb448de790"
+    },
+    {
+      "bytes": 2986,
+      "path": "apps/admin-web/src/pages/PaymentPage.tsx",
+      "sha256": "1fc94bb01966fc5ef59e49fdd4fd447e10d8abacb345cdc54c3a50617455b35f"
+    },
+    {
+      "bytes": 3425,
+      "path": "apps/admin-web/src/pages/PendingPointPage.tsx",
+      "sha256": "1f3efd63ebb5e516c8fb7eaeb9604af9e92c530b490c7869cb115e910fd5de2d"
+    },
+    {
+      "bytes": 1652,
+      "path": "apps/admin-web/src/pages/PlaceholderLedgerPage.tsx",
+      "sha256": "a2268e3409adbe64ebeeb0661968f38ddd23dd72f5ebf455dcc982bfa28bf478"
+    },
+    {
+      "bytes": 6487,
+      "path": "apps/admin-web/src/pages/PointGrantPage.tsx",
+      "sha256": "f9a8f02135b9527340a46fcee7df3067e262ae28c1e8518dec1a266bf9e931fd"
+    },
+    {
+      "bytes": 8469,
+      "path": "apps/admin-web/src/pages/ProductEditPage.tsx",
+      "sha256": "9a9904be52e4e8e79a65a2da271de72e2807b13c4d20bd16d06d2ff2dd0f20d6"
+    },
+    {
+      "bytes": 23855,
+      "path": "apps/admin-web/src/pages/ProductPage.tsx",
+      "sha256": "7d70651b3ac7309a26aea3c6cb8613bf855979e36978dc064fef4c1c526fc235"
+    },
+    {
+      "bytes": 2170,
+      "path": "apps/admin-web/src/pages/QrCodePage.tsx",
+      "sha256": "a4d7746d48b07d5002e807d6771580b6acfa1a8b9688a4ada4173d914aa6218d"
+    },
+    {
+      "bytes": 2877,
+      "path": "apps/admin-web/src/pages/ReconciliationPage.tsx",
+      "sha256": "ffdccf75a8f5381002b94ad65d430fff31225b9870c755fef3003d081ad01887"
+    },
+    {
+      "bytes": 9142,
+      "path": "apps/admin-web/src/pages/RefundPage.tsx",
+      "sha256": "1223ad5d1666cde5a244aac37bc1c84b8964c3ac7d2629ca82b94f68eed2b2a6"
+    },
+    {
+      "bytes": 4332,
+      "path": "apps/admin-web/src/pages/ScanPayPage.tsx",
+      "sha256": "55990b3ce3783f8ee3f84d3e296244d51d452903ed6ccbd2ebb7ae1950080ea2"
+    },
+    {
+      "bytes": 10005,
+      "path": "apps/admin-web/src/pages/SettlementPage.tsx",
+      "sha256": "7420846850177525029c9e514992cc597e73590018cc15705d4ad8c0bc0afc76"
+    },
+    {
+      "bytes": 5551,
+      "path": "apps/admin-web/src/pages/SettlementProfilePage.tsx",
+      "sha256": "55390be5ec47f148fef081194b4694928e21af9dbda2c0b833d34251bb07e57a"
+    },
+    {
+      "bytes": 2561,
+      "path": "apps/admin-web/src/pages/ShopPage.tsx",
+      "sha256": "4752c008cdd08740df38f04ab8227d43c3fc5124f638aa5d4e9784ff89c38b66"
+    },
+    {
+      "bytes": 6924,
+      "path": "apps/admin-web/src/pages/SplitInstructionPage.tsx",
+      "sha256": "e41677fbdae7f3a8684f540f20c96ddc8ba2d670eb33e6485d31c13bb9926070"
+    },
+    {
+      "bytes": 21062,
+      "path": "apps/admin-web/src/pages/SystemPage.tsx",
+      "sha256": "3366a2a88b5e3cbcbb095f073eb715261da90916def8e25e011281a6f7c65434"
+    },
+    {
+      "bytes": 1390,
+      "path": "apps/admin-web/src/pages/UserPage.tsx",
+      "sha256": "44a695af9e60ee84a9ec3144afca15500ec2a4ad18cdec9ce8c6b8352b405790"
+    },
+    {
+      "bytes": 923,
+      "path": "apps/admin-web/src/pages/v03Ui.test.ts",
+      "sha256": "54bcb30ae76b005f130688a2a21e9b658c4607baa536a6639de35b7abb040cb4"
+    },
+    {
+      "bytes": 1300,
+      "path": "apps/admin-web/src/pages/v03Ui.ts",
+      "sha256": "d72fa720e345e757551a9886387b5a585d0f75b16aa92c2c020b9a4db304378b"
+    },
+    {
+      "bytes": 19920,
+      "path": "apps/admin-web/src/services/adminService.ts",
+      "sha256": "8b22a661aaa2d110b3983f3e0334be97fdbfaf62c6655ed2d07b7dbd7f2ac90c"
+    },
+    {
+      "bytes": 1046,
+      "path": "apps/admin-web/src/services/coinService.ts",
+      "sha256": "200b21a93c434133e32e73565ee3af7c81a397dab734105fe3640db2625c378c"
+    },
+    {
+      "bytes": 2965,
+      "path": "apps/admin-web/src/services/couponService.ts",
+      "sha256": "c0176104af2ff1fd3ed02fde801534b9b6d0d5bebf4913da15cb198478ebf538"
+    },
+    {
+      "bytes": 3177,
+      "path": "apps/admin-web/src/services/deduction.ts",
+      "sha256": "e6f1545af05ba132cfe855f585f9f829b64d7b46672e31da4956bd93aa011d30"
+    },
+    {
+      "bytes": 3853,
+      "path": "apps/admin-web/src/services/fundingPoolService.test.ts",
+      "sha256": "6c0c80188a63a25dc10f55d91cc984d18ccd6ccf87fba2f2d390cc656ed30e77"
+    },
+    {
+      "bytes": 7236,
+      "path": "apps/admin-web/src/services/fundingPoolService.ts",
+      "sha256": "15d5576dc767275bd84ac218ea041b25f4e56c13b6c9f2e504654e95983d07e9"
+    },
+    {
+      "bytes": 529,
+      "path": "apps/admin-web/src/services/ledgerService.ts",
+      "sha256": "69217c3f052b194c48634b2a6f61c3a691d3e14b6f778c4bfda26b11df3d825f"
+    },
+    {
+      "bytes": 1552,
+      "path": "apps/admin-web/src/services/merchantLifecycleService.ts",
+      "sha256": "c2241d167f21a2e84b85c37fb7d1617598b1c5cba97e1723ab4774def86fcea4"
+    },
+    {
+      "bytes": 1104,
+      "path": "apps/admin-web/src/services/mockClient.ts",
+      "sha256": "b3f5746e5b7c7599b5f041b04ae43140e9d52c9d294c0e767cdccb47f50040b0"
+    },
+    {
+      "bytes": 3624,
+      "path": "apps/admin-web/src/services/mockRepository.ts",
+      "sha256": "59cc8fb70f83ba7dc0c4c1e9a0786c7cdd9dfe866509e4a1c9d14b6c3402a4f2"
+    },
+    {
+      "bytes": 683,
+      "path": "apps/admin-web/src/services/paymentService.ts",
+      "sha256": "cd1fa7350c0646d69e6fb565683b850d0b46d745f34df16acd4db0056e5b9e7e"
+    },
+    {
+      "bytes": 7678,
+      "path": "apps/admin-web/src/services/pointGrantService.test.ts",
+      "sha256": "d77b717609605bd4defa6c051d6cf4031eb47929b99d420955453631a5e39cc2"
+    },
+    {
+      "bytes": 16856,
+      "path": "apps/admin-web/src/services/pointGrantService.ts",
+      "sha256": "3479ccab2deb10eea2c16cac04a7ca51938b4b42f28d67072a5cbe515250b934"
+    },
+    {
+      "bytes": 583,
+      "path": "apps/admin-web/src/services/reconciliationService.ts",
+      "sha256": "a45711c12bdb5f24d0561bf10987a6f1a28a87e8ebf8a14b9e95e0de6631d932"
+    },
+    {
+      "bytes": 4429,
+      "path": "apps/admin-web/src/services/settlementRules.test.ts",
+      "sha256": "0ea604594f5d4b751b386e1ba88aae4f3a75ab609498a4f51d8a7aa0986391f1"
+    },
+    {
+      "bytes": 3428,
+      "path": "apps/admin-web/src/services/settlementRules.ts",
+      "sha256": "d90dab03b9611f726bca7b4a78dc91390f41d0464bef3d976cf1371734211434"
+    },
+    {
+      "bytes": 2965,
+      "path": "apps/admin-web/src/services/splitService.test.ts",
+      "sha256": "e6be9202e886f094edf4bd4fe7baf57cefc7fd887511965313fc7d9c14ff9a14"
+    },
+    {
+      "bytes": 5454,
+      "path": "apps/admin-web/src/services/splitService.ts",
+      "sha256": "a582aa11835f269c442314d3d8790ea99e54fb4c7cefd4f991c10ce10b1cfc50"
+    },
+    {
+      "bytes": 2050,
+      "path": "apps/admin-web/src/services/v03MockServices.test.ts",
+      "sha256": "a68773530eea79ca1c546580d86470035f8138b0f5d01f676bc37ee6fe8e3631"
+    },
+    {
+      "bytes": 4604,
+      "path": "apps/admin-web/src/services/v03MockServices.ts",
+      "sha256": "864a361b0c81f296d1d9893ca173d7fa00fbe2c186128fb80be5f2bc4d6a46f1"
+    },
+    {
+      "bytes": 3890,
+      "path": "apps/admin-web/src/styles.css",
+      "sha256": "fce0dbe595d74c6c7aef45abe6df83a27f608ae9e4023199830267ec38c5a42e"
+    },
+    {
+      "bytes": 1636,
+      "path": "apps/admin-web/src/types.ts",
+      "sha256": "41c21c1ae36a6cf26e5f7594624ee5495de918bdac3aacfd24c90883a68cc2a6"
+    },
+    {
+      "bytes": 599,
+      "path": "apps/admin-web/tsconfig.app.json",
+      "sha256": "7b40342323c8567e08720aec492d7b54b842667fcfe55f6f2426405d9b025add"
+    },
+    {
+      "bytes": 126,
+      "path": "apps/admin-web/tsconfig.json",
+      "sha256": "ad28d132ee48d6e23917cf5827cace785d0fc01a44ca68b0dda51cc8c3fd3f52"
+    },
+    {
+      "bytes": 424,
+      "path": "apps/admin-web/tsconfig.node.json",
+      "sha256": "0595a5f828cf1fa770b8066e336406b967b0598010739457300a3b8b04d0fe62"
+    },
+    {
+      "bytes": 481,
+      "path": "apps/admin-web/vite.config.ts",
+      "sha256": "005576c0f9d7183d88bd691298e2135f28d1401270247732df59ddade95e3d62"
+    },
+    {
+      "bytes": 31126,
+      "path": "docs/requirements/数字生活与支付底层平台-融合功能清单-V1.4-扩写版.xlsx",
+      "sha256": "81001c66015a05c25e98f079a9bb944d750b6f2fc8533d3fb37d2e046a0a82e7"
+    },
+    {
+      "bytes": 70203,
+      "path": "experiment/requirements.pc.json",
+      "sha256": "ce486869b34b000a9347676c815aa12d53132109b0a8f8d096974bb2b43d88ca"
+    },
+    {
+      "bytes": 329,
+      "path": "package.json",
+      "sha256": "d0e54f4d8e07240c3e050ff87bbdb92e175f63b37f48db20d6760cb5c8854dae"
+    },
+    {
+      "bytes": 86645,
+      "path": "pnpm-lock.yaml",
+      "sha256": "e614cc2a84a4967594302ecd574f96c06524f6c04633700705dacd51e9188bcb"
+    },
+    {
+      "bytes": 56,
+      "path": "pnpm-workspace.yaml",
+      "sha256": "aeee9b6b99921e80542cb22d6e2f3907ccd97ea65f43780d062bf2fa64ea7264"
+    }
+  ],
+  "manifestSha256": "cb375198de18bfc4b20b8756883bb929e833d2e6081e8c2277f5bf9b4b728adf"
+}

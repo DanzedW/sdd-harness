@@ -1,0 +1,73 @@
+// mocks/data-ledger.ts — 记账分录 Mock
+
+import type { LedgerEntry } from "../domain";
+
+// === 分录按资金来源、分配对象和权益责任分别建账 ===
+export const ledgerEntries: LedgerEntry[] = [
+  // ORD-20260620-005 的分录（支付成功）
+  {
+    id: "led-1",
+    entryId: "LED-001",
+    orderId: "ORD-20260620-005",
+    paymentId: "PAY-001",
+    type: "PAYMENT_RECEIVABLE",
+    direction: "借",
+    amount: 89700,
+    description: "收到用户微信支付",
+    idempotentKey: "ledger:pay-1:receivable",
+    auditRecordId: "audit-led-1",
+    reconciliationStatus: "MATCHED",
+    status: "已记账",
+    updatedAt: "2026-06-20 10:05:30",
+    createdAt: "2026-06-20 10:05:30",
+  },
+  {
+    id: "led-2",
+    entryId: "LED-002",
+    orderId: "ORD-20260620-005",
+    paymentId: "PAY-001",
+    type: "MERCHANT_PAYABLE",
+    direction: "贷",
+    amount: 90000,
+    description: "按商户画像快照确认商户应付",
+    idempotentKey: "ledger:split-1:merchant",
+    auditRecordId: "audit-led-2",
+    reconciliationStatus: "NOT_STARTED",
+    status: "已记账",
+    updatedAt: "2026-06-20 10:05:30",
+    createdAt: "2026-06-20 10:05:30",
+  },
+  {
+    id: "led-3",
+    entryId: "LED-003",
+    orderId: "ORD-20260620-005",
+    paymentId: "PAY-001",
+    type: "REWARD_POINT_LIABILITY",
+    direction: "贷",
+    amount: 670,
+    description: "交易返积分现金等值责任",
+    idempotentKey: "ledger:split-1:reward",
+    auditRecordId: "audit-led-3",
+    reconciliationStatus: "NOT_STARTED",
+    status: "已记账",
+    updatedAt: "2026-06-20 10:05:30",
+    createdAt: "2026-06-20 10:05:30",
+  },
+  // ORD-20260610-001 的分录（大额网银支付）
+  {
+    id: "led-4",
+    entryId: "LED-004",
+    orderId: "ORD-20260610-001",
+    paymentId: "PAY-004",
+    type: "PAYMENT_RECEIVABLE",
+    direction: "借",
+    amount: 500000,
+    description: "收到企业网银支付",
+    idempotentKey: "ledger:pay-4:receivable",
+    auditRecordId: "audit-led-4",
+    reconciliationStatus: "MISMATCH",
+    status: "待对账",
+    updatedAt: "2026-06-10 15:00:00",
+    createdAt: "2026-06-10 15:00:00",
+  },
+];
