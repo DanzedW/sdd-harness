@@ -8,7 +8,7 @@
 
 ## UNCONFIRMED
 
-24 条来源标记原样保留。UI 按钮 disabled 且有原因提示；即使绕过 UI，service 也抛出 `UNCONFIRMED`，没有推定第三方、合同、设备或资金规则。
+24 条来源标记原样保留。共享台账和 shared service 都是只读，没有 generic mutation API；真实动作只能由未来专用领域能力在确认后实现。
 
 ## Rollback
 
@@ -16,9 +16,9 @@
 
 ## 风险分级
 
-高风险是把未确认口径误当成可执行规则。本实现用来源布尔标记驱动 UI disabled，并在 service 再次拒绝，测试直接调用 service 验证不能绕过。剩余风险是未来开发者只改页面或另建 service，因此后续代码评审必须把 `unconfirmed` 保护列为金融和外部接口变更的必查项。
+高风险是把未确认口径误当成可执行规则。本实现删除 shared factory/singleton 的全部 execute 代码，UI 只查询、详情与导航。未来专用 service 仍必须把 `unconfirmed` 保护列为金融和外部接口变更的必查项。
 
-中风险是内存幂等与审计只适用于本地 Mock。页面刷新、HMR 或多实例会重置 Map，不能支撑真实资金动作。真实接入时必须使用后端事务、持久化唯一键、请求体摘要和审计存储；在这些能力完成前，不得把当前按钮文案改成生产执行，也不得把 Mock 成功提示作为渠道成功凭证。
+shared service 的 auditTrail 当前是只读空模型，不代表持久化审计。真实领域接入仍必须使用后端事务、幂等约束和审计存储；不得把 overview 文案当成渠道成功凭证。
 
 中风险还包括没有浏览器 E2E。TypeScript 能证明 props 与路由编译，但不能证明表格在特定 viewport 下无溢出、菜单滚动正常或抽屉关闭后的历史行为完全符合预期。`probe-report.json` 明确为 false，而非使用 waiver 生成假通过。补证时至少覆盖登录、17 域菜单、关键词筛选、UNCONFIRMED 禁用、确认条目执行提示和资金工作台入口。
 
@@ -26,7 +26,7 @@
 
 ## UNCONFIRMED 处理细则
 
-来源中 24 条标记覆盖发票核验与抽奖规则、第三方系统或设备、部分资金口径等。registry 不解析长文本来猜结果，只消费明确的 `unconfirmed` 字段。列表保留完整 detail，共享台账完全没有执行入口；受控 factory execute 仍先拒绝 UNCONFIRMED，不能被 replay cache 绕过。
+来源中 24 条标记覆盖发票核验与抽奖规则、第三方系统或设备、部分资金口径等。registry 不解析长文本来猜结果，只消费明确的 `unconfirmed` 字段。列表保留完整 detail；shared factory 与 singleton 都只有 query/get/auditTrail。
 
 确认流程必须从需求源开始：产品或商务提供可追溯结论，更新 JSON 标记和详细规则；开发实现具体状态机或接口；测试覆盖成功、失败、幂等和回滚；追踪更新 AC、owner、test、status 与 evidenceHash；最后再开放 UI。任何只通过浏览器开发者工具移除 disabled 的做法都会被 service 拦截。
 

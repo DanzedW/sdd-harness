@@ -29,7 +29,7 @@
 - RED: domain catalog test failed because `domainCatalog` did not exist; after minimal catalog implementation, 17/93/named-route and finance mapping assertions passed.
 - RED: trace assertion then failed because first-wave trace had no specialized/shared status; regenerated from typed catalog and existing disk evidence.
 - GREEN: targeted catalog/trace/UI-boundary 4/4 tests passed.
-- Final full evidence: 12 files / 49 tests passed; typecheck exit 0; build exit 0 with 3167 modules.
+- Final read-only evidence: 12 files / 47 tests passed; typecheck exit 0; build exit 0 with 3167 modules.
 - Final truth repair: shared UI execute removed; singleton is read-only; replay scope uses requirement/action/canonical payload hash and validates unknown/UNCONFIRMED first.
 - Trace evidence: actual URL route + routeLocator, independent sourceSha256, 93 unique canonical evidence hashes; status 5 specialized / 64 shared / 24 disabled; locator anchors validated.
 - Remaining: M2/M4 domain semantic services and cross-domain lifecycle are partial; M5 Browser/Playwright evidence remains pending.

@@ -50,7 +50,7 @@
   {
     "id": "PC-083",
     "source": "experiment/requirements.pc.json#L34",
-    "AC": "保留依赖与风险；共享UI无执行入口，service拒绝真实动作",
+    "AC": "保留依赖与风险；共享UI与service均为只读，无generic mutation API",
     "owner": "用户运营与风控负责人",
     "route": "/operations/domains/user-management",
     "page": "apps/admin-web/src/pages/UserPage.tsx#UserPage",
@@ -61,7 +61,7 @@
     "status": "UNCONFIRMED_ACTION_DISABLED",
     "sourceSha256": "81001c66015a05c25e98f079a9bb944d750b6f2fc8533d3fb37d2e046a0a82e7",
     "routeLocator": "apps/admin-web/src/registry/domainCatalog.ts#userManagementDomain",
-    "evidenceHash": "ffae2be7770d3db2f83bdb5c3f2720f087f00fd2cda7842701e4c4ef3bde0fa9"
+    "evidenceHash": "98feef30ddf57cb53152b02b3fde80efbdde16aee48701874738457f406ec001"
   },
   {
     "id": "PC-084",
@@ -98,7 +98,7 @@
   {
     "id": "PC-086",
     "source": "experiment/requirements.pc.json#L61",
-    "AC": "保留依赖与风险；共享UI无执行入口，service拒绝真实动作",
+    "AC": "保留依赖与风险；共享UI与service均为只读，无generic mutation API",
     "owner": "活动运营与财务风控负责人",
     "route": "/operations/domains/invoice-lottery",
     "page": "apps/admin-web/src/pages/RequirementLedgerPage.tsx#RequirementLedgerPage",
@@ -109,12 +109,12 @@
     "status": "UNCONFIRMED_ACTION_DISABLED",
     "sourceSha256": "81001c66015a05c25e98f079a9bb944d750b6f2fc8533d3fb37d2e046a0a82e7",
     "routeLocator": "apps/admin-web/src/registry/domainCatalog.ts#invoiceLotteryDomain",
-    "evidenceHash": "1e869082e21df2bd4e3b48c8686e25c3721f846465ab7de91b71f27a840767d4"
+    "evidenceHash": "6407608dfdfa8d7ad3fdb0c80d9b72114bf92f41af2267761633971bd3d71e56"
   },
   {
     "id": "PC-087",
     "source": "experiment/requirements.pc.json#L70",
-    "AC": "保留依赖与风险；共享UI无执行入口，service拒绝真实动作",
+    "AC": "保留依赖与风险；共享UI与service均为只读，无generic mutation API",
     "owner": "活动运营与财务风控负责人",
     "route": "/operations/domains/invoice-lottery",
     "page": "apps/admin-web/src/pages/RequirementLedgerPage.tsx#RequirementLedgerPage",
@@ -125,12 +125,12 @@
     "status": "UNCONFIRMED_ACTION_DISABLED",
     "sourceSha256": "81001c66015a05c25e98f079a9bb944d750b6f2fc8533d3fb37d2e046a0a82e7",
     "routeLocator": "apps/admin-web/src/registry/domainCatalog.ts#invoiceLotteryDomain",
-    "evidenceHash": "c19882a07919b4eba25b2946eb3717f944f6cce9df9f75cdd96fd8bf6bb3d9e4"
+    "evidenceHash": "dab8f14040da325509c68db47b5b6ac11a09e90086c6eef38a812008c5009068"
   },
   {
     "id": "PC-088",
     "source": "experiment/requirements.pc.json#L79",
-    "AC": "保留依赖与风险；共享UI无执行入口，service拒绝真实动作",
+    "AC": "保留依赖与风险；共享UI与service均为只读，无generic mutation API",
     "owner": "活动运营与财务风控负责人",
     "route": "/operations/domains/invoice-lottery",
     "page": "apps/admin-web/src/pages/RequirementLedgerPage.tsx#RequirementLedgerPage",
@@ -141,12 +141,12 @@
     "status": "UNCONFIRMED_ACTION_DISABLED",
     "sourceSha256": "81001c66015a05c25e98f079a9bb944d750b6f2fc8533d3fb37d2e046a0a82e7",
     "routeLocator": "apps/admin-web/src/registry/domainCatalog.ts#invoiceLotteryDomain",
-    "evidenceHash": "3694e4ab072ed6a88c96d6789c0f558a4bb9b26edaa0c0a219f3e72ec7f2c35c"
+    "evidenceHash": "914d09cccd12a1ea69d1d392598fde16e0a72d5ad1e7ab95a7f32dee7601b577"
   },
   {
     "id": "PC-089",
     "source": "experiment/requirements.pc.json#L88",
-    "AC": "保留依赖与风险；共享UI无执行入口，service拒绝真实动作",
+    "AC": "保留依赖与风险；共享UI与service均为只读，无generic mutation API",
     "owner": "活动运营与财务风控负责人",
     "route": "/operations/domains/invoice-lottery",
     "page": "apps/admin-web/src/pages/RequirementLedgerPage.tsx#RequirementLedgerPage",
@@ -157,12 +157,12 @@
     "status": "UNCONFIRMED_ACTION_DISABLED",
     "sourceSha256": "81001c66015a05c25e98f079a9bb944d750b6f2fc8533d3fb37d2e046a0a82e7",
     "routeLocator": "apps/admin-web/src/registry/domainCatalog.ts#invoiceLotteryDomain",
-    "evidenceHash": "75a2ef4038a317d1648dadcc6467197c153c54be2e1eb40d5ac85a7460e935df"
+    "evidenceHash": "5e94aa4a03bc61e7dcc4e7a1ec15e7f6a7ff72138ede4db7c247357919a45fbe"
   },
   {
     "id": "PC-090",
     "source": "experiment/requirements.pc.json#L97",
-    "AC": "保留依赖与风险；共享UI无执行入口，service拒绝真实动作",
+    "AC": "保留依赖与风险；共享UI与service均为只读，无generic mutation API",
     "owner": "活动运营与财务风控负责人",
     "route": "/operations/domains/invoice-lottery",
     "page": "apps/admin-web/src/pages/RequirementLedgerPage.tsx#RequirementLedgerPage",
@@ -173,12 +173,12 @@
     "status": "UNCONFIRMED_ACTION_DISABLED",
     "sourceSha256": "81001c66015a05c25e98f079a9bb944d750b6f2fc8533d3fb37d2e046a0a82e7",
     "routeLocator": "apps/admin-web/src/registry/domainCatalog.ts#invoiceLotteryDomain",
-    "evidenceHash": "4eedd62ec4fd40c93ed66efda8471bbd12b893fd7e782189041de2eb5a418297"
+    "evidenceHash": "f3b2503d633294f06d05f7a9bbad87b01800f3dceb3be4002d63dc08bae7f240"
   },
   {
     "id": "PC-091",
     "source": "experiment/requirements.pc.json#L106",
-    "AC": "保留依赖与风险；共享UI无执行入口，service拒绝真实动作",
+    "AC": "保留依赖与风险；共享UI与service均为只读，无generic mutation API",
     "owner": "活动运营与财务风控负责人",
     "route": "/operations/domains/invoice-lottery",
     "page": "apps/admin-web/src/pages/RequirementLedgerPage.tsx#RequirementLedgerPage",
@@ -189,12 +189,12 @@
     "status": "UNCONFIRMED_ACTION_DISABLED",
     "sourceSha256": "81001c66015a05c25e98f079a9bb944d750b6f2fc8533d3fb37d2e046a0a82e7",
     "routeLocator": "apps/admin-web/src/registry/domainCatalog.ts#invoiceLotteryDomain",
-    "evidenceHash": "bbad468ed76ffd46064c2a78eeb76da8114a66a65cb40ffb472a2821d1ab29d7"
+    "evidenceHash": "2de5ac9179710bd79003100acc03f6e748a061fc05c4989c31989fb8b8a46186"
   },
   {
     "id": "PC-092",
     "source": "experiment/requirements.pc.json#L115",
-    "AC": "保留依赖与风险；共享UI无执行入口，service拒绝真实动作",
+    "AC": "保留依赖与风险；共享UI与service均为只读，无generic mutation API",
     "owner": "活动运营与财务风控负责人",
     "route": "/operations/domains/invoice-lottery",
     "page": "apps/admin-web/src/pages/RequirementLedgerPage.tsx#RequirementLedgerPage",
@@ -205,7 +205,7 @@
     "status": "UNCONFIRMED_ACTION_DISABLED",
     "sourceSha256": "81001c66015a05c25e98f079a9bb944d750b6f2fc8533d3fb37d2e046a0a82e7",
     "routeLocator": "apps/admin-web/src/registry/domainCatalog.ts#invoiceLotteryDomain",
-    "evidenceHash": "48406a74853ce97e8f56262134ffbb859878baa372f9307fd5fb4ad88331e604"
+    "evidenceHash": "3f3a622130db7cba1081367effb9ee1cd532e5f4d592c60ad2e97371cfb408c2"
   },
   {
     "id": "PC-093",
@@ -370,7 +370,7 @@
   {
     "id": "PC-103",
     "source": "experiment/requirements.pc.json#L214",
-    "AC": "保留依赖与风险；共享UI无执行入口，service拒绝真实动作",
+    "AC": "保留依赖与风险；共享UI与service均为只读，无generic mutation API",
     "owner": "商户运营与结算配置负责人",
     "route": "/operations/domains/merchant-management",
     "page": "apps/admin-web/src/pages/MerchantPage.tsx#MerchantPage",
@@ -381,7 +381,7 @@
     "status": "UNCONFIRMED_ACTION_DISABLED",
     "sourceSha256": "81001c66015a05c25e98f079a9bb944d750b6f2fc8533d3fb37d2e046a0a82e7",
     "routeLocator": "apps/admin-web/src/registry/domainCatalog.ts#merchantManagementDomain",
-    "evidenceHash": "18daa77fc32ae8aea9fb5f8b72ddf321d81d9974e41e2471108baff604066d52"
+    "evidenceHash": "87b656e6b401e48e7e6103575beec0218141cd1f08ddde062c02422f4bd053b0"
   },
   {
     "id": "PC-104",
@@ -514,7 +514,7 @@
   {
     "id": "PC-112",
     "source": "experiment/requirements.pc.json#L295",
-    "AC": "保留依赖与风险；共享UI无执行入口，service拒绝真实动作",
+    "AC": "保留依赖与风险；共享UI与service均为只读，无generic mutation API",
     "owner": "电商商品与订单运营负责人",
     "route": "/operations/domains/commerce-management",
     "page": "apps/admin-web/src/pages/RefundPage.tsx#RefundPage",
@@ -525,7 +525,7 @@
     "status": "UNCONFIRMED_ACTION_DISABLED",
     "sourceSha256": "81001c66015a05c25e98f079a9bb944d750b6f2fc8533d3fb37d2e046a0a82e7",
     "routeLocator": "apps/admin-web/src/registry/domainCatalog.ts#commerceManagementDomain",
-    "evidenceHash": "b0317fb7c8ac3ed3c277a357d3b9bf5c05aafb654e88453cf9d0543529726198"
+    "evidenceHash": "38b93bafece50d10913805a5988031d0725524fd838675567549fa2995602b94"
   },
   {
     "id": "PC-113",
@@ -578,7 +578,7 @@
   {
     "id": "PC-116",
     "source": "experiment/requirements.pc.json#L331",
-    "AC": "保留依赖与风险；共享UI无执行入口，service拒绝真实动作",
+    "AC": "保留依赖与风险；共享UI与service均为只读，无generic mutation API",
     "owner": "积分运营与资金池负责人",
     "route": "/operations/domains/point-management",
     "page": "apps/admin-web/src/pages/FundingPoolPage.tsx#FundingPoolPage",
@@ -589,7 +589,7 @@
     "status": "UNCONFIRMED_ACTION_DISABLED",
     "sourceSha256": "81001c66015a05c25e98f079a9bb944d750b6f2fc8533d3fb37d2e046a0a82e7",
     "routeLocator": "apps/admin-web/src/registry/domainCatalog.ts#pointManagementDomain",
-    "evidenceHash": "61350c0ab92344b8485fe0d09d111cfe8bb5904f5e0a179ef147a269c645d5a9"
+    "evidenceHash": "2a5e37eb3af6b814b149bb9df2fa3f6c03ef1a8fe1fca3ba267cff6ca93a8dd5"
   },
   {
     "id": "PC-117",
@@ -642,7 +642,7 @@
   {
     "id": "PC-120",
     "source": "experiment/requirements.pc.json#L367",
-    "AC": "保留依赖与风险；共享UI无执行入口，service拒绝真实动作",
+    "AC": "保留依赖与风险；共享UI与service均为只读，无generic mutation API",
     "owner": "积分运营与资金池负责人",
     "route": "/operations/domains/point-management",
     "page": "apps/admin-web/src/pages/FundingPoolPage.tsx#FundingPoolPage",
@@ -653,12 +653,12 @@
     "status": "UNCONFIRMED_ACTION_DISABLED",
     "sourceSha256": "81001c66015a05c25e98f079a9bb944d750b6f2fc8533d3fb37d2e046a0a82e7",
     "routeLocator": "apps/admin-web/src/registry/domainCatalog.ts#pointManagementDomain",
-    "evidenceHash": "cbbdd25b49b0dfadc257215b5b71df1866379c158ff9834dcc739849ba4a8da2"
+    "evidenceHash": "5f25f8840dbc7f68fd3684a38dbc78e63832f3f16fdc5441d04e67fad278f26a"
   },
   {
     "id": "PC-121",
     "source": "experiment/requirements.pc.json#L376",
-    "AC": "保留依赖与风险；共享UI无执行入口，service拒绝真实动作",
+    "AC": "保留依赖与风险；共享UI与service均为只读，无generic mutation API",
     "owner": "票券运营与券资金池负责人",
     "route": "/operations/domains/coupon-management",
     "page": "apps/admin-web/src/pages/CouponPage.tsx#CouponPage",
@@ -669,7 +669,7 @@
     "status": "UNCONFIRMED_ACTION_DISABLED",
     "sourceSha256": "81001c66015a05c25e98f079a9bb944d750b6f2fc8533d3fb37d2e046a0a82e7",
     "routeLocator": "apps/admin-web/src/registry/domainCatalog.ts#couponManagementDomain",
-    "evidenceHash": "3bafd7ef5d765beb464ca7d2f6e9a4aca14d3d473b4a6b2c2986b82552f0667a"
+    "evidenceHash": "f63de0c81825a18b1dab9e5a617b8bd22af8da3f141708efefd0f5808a685534"
   },
   {
     "id": "PC-122",
@@ -834,7 +834,7 @@
   {
     "id": "PC-132",
     "source": "experiment/requirements.pc.json#L475",
-    "AC": "保留依赖与风险；共享UI无执行入口，service拒绝真实动作",
+    "AC": "保留依赖与风险；共享UI与service均为只读，无generic mutation API",
     "owner": "票券运营与券资金池负责人",
     "route": "/operations/domains/coupon-management",
     "page": "apps/admin-web/src/pages/CouponFundingPoolPage.tsx#CouponFundingPoolPage",
@@ -845,7 +845,7 @@
     "status": "UNCONFIRMED_ACTION_DISABLED",
     "sourceSha256": "81001c66015a05c25e98f079a9bb944d750b6f2fc8533d3fb37d2e046a0a82e7",
     "routeLocator": "apps/admin-web/src/registry/domainCatalog.ts#couponManagementDomain",
-    "evidenceHash": "80ee47702345284f36b873a8f8c925aa36f43cc7f5c7d1f0476bbd8ca660d205"
+    "evidenceHash": "933c4af8a4af61dc68001e989207da0131662b12ca108bc4273ba58dadfcac92"
   },
   {
     "id": "PC-133",
@@ -930,7 +930,7 @@
   {
     "id": "PC-138",
     "source": "experiment/requirements.pc.json#L529",
-    "AC": "保留依赖与风险；共享UI无执行入口，service拒绝真实动作",
+    "AC": "保留依赖与风险；共享UI与service均为只读，无generic mutation API",
     "owner": "权益运营负责人",
     "route": "/operations/domains/point-benefits",
     "page": "apps/admin-web/src/pages/RequirementLedgerPage.tsx#RequirementLedgerPage",
@@ -941,7 +941,7 @@
     "status": "UNCONFIRMED_ACTION_DISABLED",
     "sourceSha256": "81001c66015a05c25e98f079a9bb944d750b6f2fc8533d3fb37d2e046a0a82e7",
     "routeLocator": "apps/admin-web/src/registry/domainCatalog.ts#pointBenefitDomain",
-    "evidenceHash": "02532c72a65e381c703cacf4757a5ca118fc4dbe735d8a9a74e756682d49b9e8"
+    "evidenceHash": "31d37f703077a7b46ca598789787fa081681ca26b88ea826b36ac03fa639639d"
   },
   {
     "id": "PC-139",
@@ -978,7 +978,7 @@
   {
     "id": "PC-141",
     "source": "experiment/requirements.pc.json#L556",
-    "AC": "保留依赖与风险；共享UI无执行入口，service拒绝真实动作",
+    "AC": "保留依赖与风险；共享UI与service均为只读，无generic mutation API",
     "owner": "生活缴费运营与接口风控负责人",
     "route": "/operations/domains/utility-payments",
     "page": "apps/admin-web/src/pages/RequirementLedgerPage.tsx#RequirementLedgerPage",
@@ -989,12 +989,12 @@
     "status": "UNCONFIRMED_ACTION_DISABLED",
     "sourceSha256": "81001c66015a05c25e98f079a9bb944d750b6f2fc8533d3fb37d2e046a0a82e7",
     "routeLocator": "apps/admin-web/src/registry/domainCatalog.ts#utilityPaymentDomain",
-    "evidenceHash": "39643a2492daf09ea3adc1f2e16b0f7db4ec0ae16dedaeed0c206f913dcc3dba"
+    "evidenceHash": "7677d1f5852683c26550e78376b0e5206b2a39caa3cdeda82a7cc45ce92654ca"
   },
   {
     "id": "PC-142",
     "source": "experiment/requirements.pc.json#L565",
-    "AC": "保留依赖与风险；共享UI无执行入口，service拒绝真实动作",
+    "AC": "保留依赖与风险；共享UI与service均为只读，无generic mutation API",
     "owner": "生活缴费运营与接口风控负责人",
     "route": "/operations/domains/utility-payments",
     "page": "apps/admin-web/src/pages/RequirementLedgerPage.tsx#RequirementLedgerPage",
@@ -1005,12 +1005,12 @@
     "status": "UNCONFIRMED_ACTION_DISABLED",
     "sourceSha256": "81001c66015a05c25e98f079a9bb944d750b6f2fc8533d3fb37d2e046a0a82e7",
     "routeLocator": "apps/admin-web/src/registry/domainCatalog.ts#utilityPaymentDomain",
-    "evidenceHash": "12feaa06de9ed61f090920906642deab7e6f35e88e5600093c18224eb37aa9c2"
+    "evidenceHash": "113992309402acdb5e89b36ca71e60355ed93f6bac0e939466f4cd4712e84a04"
   },
   {
     "id": "PC-143",
     "source": "experiment/requirements.pc.json#L574",
-    "AC": "保留依赖与风险；共享UI无执行入口，service拒绝真实动作",
+    "AC": "保留依赖与风险；共享UI与service均为只读，无generic mutation API",
     "owner": "生活缴费运营与接口风控负责人",
     "route": "/operations/domains/utility-payments",
     "page": "apps/admin-web/src/pages/RequirementLedgerPage.tsx#RequirementLedgerPage",
@@ -1021,12 +1021,12 @@
     "status": "UNCONFIRMED_ACTION_DISABLED",
     "sourceSha256": "81001c66015a05c25e98f079a9bb944d750b6f2fc8533d3fb37d2e046a0a82e7",
     "routeLocator": "apps/admin-web/src/registry/domainCatalog.ts#utilityPaymentDomain",
-    "evidenceHash": "26f1d6567d1a35c4acaf4c78ad06578a992f851e1c98c304122dc2c4a7a0d912"
+    "evidenceHash": "db678c03797334734f522ace72e0e139c4f23468e9773dd68663a69cfb082d73"
   },
   {
     "id": "PC-144",
     "source": "experiment/requirements.pc.json#L583",
-    "AC": "保留依赖与风险；共享UI无执行入口，service拒绝真实动作",
+    "AC": "保留依赖与风险；共享UI与service均为只读，无generic mutation API",
     "owner": "生活缴费运营与接口风控负责人",
     "route": "/operations/domains/utility-payments",
     "page": "apps/admin-web/src/pages/RequirementLedgerPage.tsx#RequirementLedgerPage",
@@ -1037,12 +1037,12 @@
     "status": "UNCONFIRMED_ACTION_DISABLED",
     "sourceSha256": "81001c66015a05c25e98f079a9bb944d750b6f2fc8533d3fb37d2e046a0a82e7",
     "routeLocator": "apps/admin-web/src/registry/domainCatalog.ts#utilityPaymentDomain",
-    "evidenceHash": "4678a466f398f41adcab78409b3029f078538b146f3dd0c3c899fc9eb2984a00"
+    "evidenceHash": "17068f1e0ebe6dd927706116250404a16000781f495c457e74a31143e742a05e"
   },
   {
     "id": "PC-145",
     "source": "experiment/requirements.pc.json#L592",
-    "AC": "保留依赖与风险；共享UI无执行入口，service拒绝真实动作",
+    "AC": "保留依赖与风险；共享UI与service均为只读，无generic mutation API",
     "owner": "生活缴费运营与接口风控负责人",
     "route": "/operations/domains/utility-payments",
     "page": "apps/admin-web/src/pages/RequirementLedgerPage.tsx#RequirementLedgerPage",
@@ -1053,12 +1053,12 @@
     "status": "UNCONFIRMED_ACTION_DISABLED",
     "sourceSha256": "81001c66015a05c25e98f079a9bb944d750b6f2fc8533d3fb37d2e046a0a82e7",
     "routeLocator": "apps/admin-web/src/registry/domainCatalog.ts#utilityPaymentDomain",
-    "evidenceHash": "98552c2912f1bb69980dee161226b0ceb39a363bf589570564400c7b2e9df4af"
+    "evidenceHash": "ab7c0f46fd7ed8e0ae6db651ae349ea7120d032dae24143871720f9518afd552"
   },
   {
     "id": "PC-146",
     "source": "experiment/requirements.pc.json#L601",
-    "AC": "保留依赖与风险；共享UI无执行入口，service拒绝真实动作",
+    "AC": "保留依赖与风险；共享UI与service均为只读，无generic mutation API",
     "owner": "生活缴费运营与接口风控负责人",
     "route": "/operations/domains/utility-payments",
     "page": "apps/admin-web/src/pages/RequirementLedgerPage.tsx#RequirementLedgerPage",
@@ -1069,7 +1069,7 @@
     "status": "UNCONFIRMED_ACTION_DISABLED",
     "sourceSha256": "81001c66015a05c25e98f079a9bb944d750b6f2fc8533d3fb37d2e046a0a82e7",
     "routeLocator": "apps/admin-web/src/registry/domainCatalog.ts#utilityPaymentDomain",
-    "evidenceHash": "64579ef3b4f817e5fa9fc7ab272126b9c9ee1fc300e6a7cf62b725ddf9bf89c6"
+    "evidenceHash": "c5f62ed9c79bc8306e1a8874d6c6b6d339751deb0814f8ac8b6a6c1a0518067c"
   },
   {
     "id": "PC-147",
@@ -1250,7 +1250,7 @@
   {
     "id": "PC-158",
     "source": "experiment/requirements.pc.json#L709",
-    "AC": "保留依赖与风险；共享UI无执行入口，service拒绝真实动作",
+    "AC": "保留依赖与风险；共享UI与service均为只读，无generic mutation API",
     "owner": "财务结算与对账负责人",
     "route": "/operations/domains/finance",
     "page": "apps/admin-web/src/pages/OrderPage.tsx#OrderPage",
@@ -1261,12 +1261,12 @@
     "status": "UNCONFIRMED_ACTION_DISABLED",
     "sourceSha256": "81001c66015a05c25e98f079a9bb944d750b6f2fc8533d3fb37d2e046a0a82e7",
     "routeLocator": "apps/admin-web/src/registry/domainCatalog.ts#financeDomain",
-    "evidenceHash": "76bf0fa7c8437526a88235035892877e8ed2d6f6542eb1595a264cb434853137"
+    "evidenceHash": "759fe8298dbaba983e8e5c548efc88509024580dfa1e981199188028de8dd9a1"
   },
   {
     "id": "PC-159",
     "source": "experiment/requirements.pc.json#L718",
-    "AC": "保留依赖与风险；共享UI无执行入口，service拒绝真实动作",
+    "AC": "保留依赖与风险；共享UI与service均为只读，无generic mutation API",
     "owner": "财务结算与对账负责人",
     "route": "/operations/domains/finance",
     "page": "apps/admin-web/src/pages/OrderPage.tsx#OrderPage",
@@ -1277,12 +1277,12 @@
     "status": "UNCONFIRMED_ACTION_DISABLED",
     "sourceSha256": "81001c66015a05c25e98f079a9bb944d750b6f2fc8533d3fb37d2e046a0a82e7",
     "routeLocator": "apps/admin-web/src/registry/domainCatalog.ts#financeDomain",
-    "evidenceHash": "98e0c83da34f0ed1b6daf10b63ccb775f9b0b9b6079d908d47ee8020ee48ec2c"
+    "evidenceHash": "b333b85b30576b1bcc262dfa354e701b6e99530dd0f201da9f328adbb3ca6822"
   },
   {
     "id": "PC-160",
     "source": "experiment/requirements.pc.json#L727",
-    "AC": "保留依赖与风险；共享UI无执行入口，service拒绝真实动作",
+    "AC": "保留依赖与风险；共享UI与service均为只读，无generic mutation API",
     "owner": "财务结算与对账负责人",
     "route": "/operations/domains/finance",
     "page": "apps/admin-web/src/pages/OrderPage.tsx#OrderPage",
@@ -1293,7 +1293,7 @@
     "status": "UNCONFIRMED_ACTION_DISABLED",
     "sourceSha256": "81001c66015a05c25e98f079a9bb944d750b6f2fc8533d3fb37d2e046a0a82e7",
     "routeLocator": "apps/admin-web/src/registry/domainCatalog.ts#financeDomain",
-    "evidenceHash": "0a0a92c7c4f5434790f3e062e148a7cd1935b6ac1d9472f5b31b506186e2c892"
+    "evidenceHash": "655a9088668fabdd7eaf1b888e9e2fcf85911fc63c1b3e2d9c8f0414d49b6303"
   },
   {
     "id": "PC-161",

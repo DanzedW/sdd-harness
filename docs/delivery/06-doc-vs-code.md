@@ -4,7 +4,7 @@
 |---|---|
 | 93 条、17 域、24 未确认 | `pcRequirementRegistry.ts#validateRegistry` + registry test |
 | 页面只经 service 访问 Mock | `RequirementLedgerPage.tsx`、`FinancialWorkbenchPage.tsx` 仅 import service |
-| 未确认动作禁用 | 共享台账无 mutation + factory execute 在 replay 前拒绝 |
+| 未确认动作禁用 | 共享台账与 shared factory/singleton 都无 execute/mutation API |
 | 整数分/基点 | `assertFinancialInput` + service test |
 | 资金治理语义 | `FinancialWorkbenchPage` 的幂等/状态/审计/异常/对账说明 |
 | 逐条追踪 | `requirements-traceability.json` 93 个对象、12 个字段 |
@@ -15,7 +15,7 @@
 
 文档中的“93 条”可由三处相互校验：需求 JSON 的数组长度、`PC_REQUIREMENTS` 测试和追踪 JSON 数量。三者首尾均为 PC-080/PC-172，唯一数为 93。文档中的“17 域”来自 registry Set，不是菜单里手写的数字；AdminLayout 直接 map 同一个 `PC_REQUIREMENT_GROUPS`，因此域入口不会因重复维护而漏项。
 
-文档中的“24 条禁用”对应来源 `unconfirmed=true`、追踪 status 和 UI/service 行为。RequirementLedgerPage 用 `disabled={record.unconfirmed}`，service 在创建审计前检查同一属性并抛错，测试查询 24 条后直接执行首条确认拒绝。若只有其中一层存在，文档不得继续写“双层禁用”。
+文档中的“24 条禁用”对应来源 `unconfirmed=true` 与追踪 status。共享 UI 只展示来源事实，shared service 只 query/get/auditTrail；测试断言 factory/singleton 均不存在 execute。
 
 “页面只经 services 访问 Mock”通过 import 边界核对。两个新增页面只 import registry 类型/域常量和 `requirementLedgerService`；没有 import `mocks/data`。registry import 的是 immutable functional requirements，不是可变业务 Mock。service 当前以 registry 作为本地读模型，执行与审计也在 service 内，页面不直接改数组。
 

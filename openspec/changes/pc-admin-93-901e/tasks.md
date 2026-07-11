@@ -40,7 +40,7 @@
 ## M5 — UI and manual evidence (PARTIAL: source contract complete, browser pending)
 
 - [x] M5.1 App/AdminLayout 使用 17 个命名路由，页面显示 owner、成熟度、主证据与专用入口；source-contract test 通过。
-- [x] M5.2 24 条 UNCONFIRMED 在共享 UI disabled，绕过 UI 时 service 仍拒绝。
+- [x] M5.2 24 条 UNCONFIRMED 保持只读；共享 UI/factory/singleton 均无 execute/mutation API。
 - [ ] M5.3 采集关键 interaction state transitions、console errors、viewport 与 manual checklist。
 - Verify: UI tests + Browser/Playwright probe report `pass=true`。
 
@@ -48,5 +48,5 @@
 
 - [x] M6.1 将 93 行 trace 的 owner/route/page/service/mock/test/verifier/status 更新到真实存在 locator。
 - [x] M6.2 route 存真实 URL、routeLocator 存代码锚点；status 5 specialized / 64 shared / 24 disabled；无 planned/broken locator。
-- [x] M6.3 final full test 12 files/49 tests、typecheck、build 通过，并运行 93/17/24 与 locator 自检。
+- [x] M6.3 final full test 12 files/47 tests、typecheck、build 通过，并运行 93/17/24、canonical hash 与 locator 自检。
 - Verify: `pnpm --filter admin-web test --run && pnpm typecheck && pnpm build` + evidence audit。

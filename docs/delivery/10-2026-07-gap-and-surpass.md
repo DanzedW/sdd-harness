@@ -22,7 +22,7 @@
 
 旧文档给出业务过程和历史报价，但没有为每项能力保留 V1.4 Excel 物理行、source SHA、版本差异或逐条变更记录。因此无法判断某条规则来自当前 Excel、历史会话还是设计推演。例如第 5 节将上门服务暂缓，而当前 V1.4 明确存在 PC-169..172 到家服务四条；第 7 节又把发票列为明确不包含，而当前 V1.4 有 PC-086..092 发票抽奖七条。
 
-本版超越策略：`requirements-traceability.json` 的 93 行 source 定位到 `requirements.pc.json#L行号`，evidenceHash 原样使用来源 SHA。模块矩阵显式把到家服务列为第 17 域，并在 pageStrategy 说明旧文档“暂缓”不能覆盖 V1.4；发票七条全部纳入，但因来源标记 UNCONFIRMED 而保持动作禁用。范围冲突通过“V1.4 优先、旧文档仅参考”解决，不做折中猜测。
+本版超越策略：trace 的 93 行 source 定位到 `requirements.pc.json#L行号`，`sourceSha256` 独立保留来源身份；`evidenceHash` 是排除自身后的完整 record stable canonical SHA-256。到家服务与发票范围以 V1.4 为准。
 
 ## 缺口 4：缺 requirement 到证据闭环
 
@@ -46,7 +46,7 @@
 
 本版超越策略：矩阵每域都有 `unconfirmedIds` 与 `financeSafety.gaps`。24 条分布到用户 1、发票 7、商家 1、电商 1、积分 2、票券 2、积分权益 1、生活缴费 6、财务 3，其余域为 0。每个相关 AC 明确“查看什么、禁用什么、service 如何拒绝”。AC-U01 规定确认迁移必须依次更新来源/hash、正式规则、migration task、tests 和 UI；不能只翻转按钮或把 status 统一写成 VERIFIED。
 
-当前代码已有共享 UI disabled 与 service 拒绝，这是第一道真实证据；下一波仍需在发票、生活缴费、提现、设备、资金池等专用 service 重复落实并写领域测试。矩阵把它们标成 planned/blocked，不声称已经完成。
+当前共享 UI/service 完全只读，没有通用 mutation surface；下一波发票、生活缴费、提现、设备与资金池的真实动作只能在专用 service 中落实并写领域测试。
 
 ## 缺口 7：没有交付证据和 Doc-vs-Code
 
@@ -64,7 +64,7 @@
 
 ## 当前第一版缺口与下一代码波次
 
-当前两个新增页面与单一 requirementLedgerService 是必要但不足的第一版。RequirementLedgerPage 解决 93 条可见、筛选、详情和共享禁用；FinancialWorkbenchPage 解决资金治理语义总览；单 service 解决查询、最小幂等审计、整数 guard 与 UNCONFIRMED 拒绝。它们不能替代新闻发布、用户风险、发票验真、分类关联、商户生命周期、商品履约、积分/券责任、活动核销、缴费接口、协议版本、RBAC、到家售后等领域行为。
+当前两个新增页面与 read-only requirementLedgerService 是必要但不足的第一版。RequirementLedgerPage 只解决 93 条可见、筛选、详情和导航；FinancialWorkbenchPage 只做治理总览；shared service 只 query/get/auditTrail。它们不能替代任何领域 mutation 或状态机。
 
 下一代码波次按 M1..M6：先建立 domain implementation registry 和失败测试；再复用/扩展现有专页并新增缺失域 service/page；随后完成 L 级资金安全与跨域异常；再采集 17 域 UI/manual/browser evidence；最后迁移 trace。任何 planned 文件名都是实施意图，不是当前磁盘 locator。
 

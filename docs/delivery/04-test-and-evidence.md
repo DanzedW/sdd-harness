@@ -33,5 +33,5 @@ registry 的第一个测试同时断言数组长度、首尾编号、Set 唯一�
 - RED 1：`domainCatalog.test.ts` 因生产模块不存在失败；GREEN 后 catalog 的 17/93、命名 route 与资金专用映射通过。
 - RED 2：catalog 两项通过但旧 trace 缺 `IMPLEMENTED_SPECIALIZED/SHARED` 而失败；重生成 93 行 trace 后通过。
 - 定向：domain catalog 4/4 tests passed，覆盖 17 命名 route、领域归属、九项资金专用映射、trace 分布和 UI/service import 边界。
-- Final truth repair：12 test files / 49 tests passed；`pnpm typecheck` exit 0；`pnpm build` exit 0，3167 modules transformed。
+- Final read-only truth repair：12 test files / 47 tests passed；`pnpm typecheck` exit 0；`pnpm build` exit 0，3167 modules transformed。
 - 浏览器 probe 仍未补采，因此 M5 只完成 source-contract evidence，不宣称 Browser/Lighthouse 通过。

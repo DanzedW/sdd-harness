@@ -42,7 +42,7 @@ describe("17-domain implementation catalog", () => {
 });
 
 describe("93-row domain trace contract", () => {
-  it("uses domain evidence distributions and preserves 24 disabled requirements", () => {
+  it("uses domain evidence distributions and preserves 24 disabled requirements", async () => {
     expect(traceability).toHaveLength(93);
     expect(new Set(traceability.map((row) => row.id)).size).toBe(93);
     expect(traceability.filter((row) => row.status === "UNCONFIRMED_ACTION_DISABLED")).toHaveLength(24);
@@ -62,6 +62,15 @@ describe("93-row domain trace contract", () => {
       expect((row as typeof row & { sourceSha256: string }).sourceSha256).toMatch(/^[a-f0-9]{64}$/);
       expect(row.evidenceHash).toMatch(/^[a-f0-9]{64}$/);
       expect(row.evidenceHash).not.toBe((row as typeof row & { sourceSha256: string }).sourceSha256);
+      const { evidenceHash, ...record } = row as typeof row & { sourceSha256: string; routeLocator: string };
+      const canonical = (value: unknown): string => {
+        if (Array.isArray(value)) return `[${value.map(canonical).join(",")}]`;
+        if (value && typeof value === "object") return `{${Object.keys(value).sort().map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
+        return JSON.stringify(value);
+      };
+      const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(canonical(record)));
+      const recalculated = Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, "0")).join("");
+      expect(evidenceHash, `${row.id} canonical evidence hash`).toBe(recalculated);
     }
   });
 });
