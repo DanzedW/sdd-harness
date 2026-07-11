@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-07-11T03:58:00.000Z",
+  "page": {
+    "url": "",
+    "viewport": { "width": 0, "height": 0, "devicePixelRatio": 0 },
+    "document": { "scrollWidth": 0, "scrollHeight": 0 },
+    "canvas": { "clientWidth": 0, "clientHeight": 0, "bufferWidth": 0, "bufferHeight": 0 },
+    "debugDomIds": [],
+    "consoleErrors": [],
+    "observationAdapter": { "name": "browser-waiver", "available": false, "snapshot": null }
+  },
+  "interactions": {},
+  "stateTransitions": [],
+  "commands": { "build": 0, "typecheck": 0, "test": 0 },
+  "waiver": "No Browser/Playwright MCP evidence was captured in the timed isolated experiment; risk disclosed in delivery docs."
+}

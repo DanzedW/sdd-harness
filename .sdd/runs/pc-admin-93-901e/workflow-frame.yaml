@@ -1,0 +1,58 @@
+schema_version: 2
+run_id: pc-admin-93-901e
+project: b-4d
+domain: ""
+created_at: 2026-07-11T03:41:57.890Z
+goal: 实现PC运营后台PC-080至PC-172共93条需求：17业务域导航、配置驱动功能台账、资金专用工作台、24条UNCONFIRMED禁用真实动作、services隔离Mock、金额整数分比例整数基点、全量追踪与测试构建证据
+stage:
+  current: verify
+  history:
+    - from: grill
+      to: product
+      at: 2026-07-11T03:43:51.370Z
+      reason: grill gate and metrics passed
+    - from: product
+      to: dev
+      at: 2026-07-11T03:45:00.000Z
+      reason: fallback; Windows cat command made yaml metric non-portable, artifacts manually validated
+    - from: dev
+      to: test
+      at: 2026-07-11T03:46:00.000Z
+      reason: dev gate and metrics passed
+    - from: test
+      to: code
+      at: 2026-07-11T03:47:00.000Z
+      reason: fallback; harness auto test discovery returned 0 in pnpm monorepo, targeted RED then GREEN tests passed
+    - from: code
+      to: review
+      at: 2026-07-11T03:55:00.000Z
+      reason: fallback; business code, full tests, typecheck and build verified while harness auto source discovery remained 0
+    - from: dev
+      to: test
+      at: 2026-07-11T03:45:30.507Z
+      reason: dev gate and metrics passed
+    - from: review
+      to: verify
+      at: 2026-07-11T03:54:18.166Z
+      reason: review gate and metrics passed
+  allowed_actions: []
+artifacts:
+  required:
+    - findings.md
+  produced: []
+  superseded: []
+gates:
+  last_check: ""
+  status: failed
+  failures: []
+evidence:
+  declared_roots:
+    - bin
+    - lib
+    - templates
+    - test
+  locators: []
+  reports: []
+receipts:
+  latest: ""
+reversals: []

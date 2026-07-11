@@ -1,0 +1,10 @@
+feature: PC admin 93-requirement ledger
+happy-path:
+  - registry has 93 consecutive unique IDs and 17 groups
+  - service returns searchable ledger rows and audited status changes
+edge-cases:
+  - integer cent and basis point boundaries are accepted
+  - filters return empty state without direct Mock access
+error-cases:
+  - all 24 UNCONFIRMED mutations are rejected
+  - duplicate idempotency key does not repeat financial mutation

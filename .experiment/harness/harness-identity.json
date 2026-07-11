@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "variant": "4d",
+  "packageName": "sdd-harness",
+  "packageVersion": "0.1.0",
+  "sourceCommit": "8379ab139938fdc30693543f821bc7cfae980e49",
+  "sourceKind": "verified-local-4d-worktree",
+  "finalReceiptSha256": "c3b1d5e623c38646e1b59f729f86c0105ad626aa562230804bb7251065915fc4",
+  "sourceStatusSha256": "710878c4cb85c33d316610e7fff3887aaa98960b45bc7cf231ecbe8e85dd2290",
+  "packageSha256": "e578f7e2d1952c277b3e1180231a60141694889c11cefc2ddbe9d7810b3b5b27",
+  "packageFile": "harnesses/runtime/4d/package/sdd-harness-0.1.0.tgz",
+  "cliVersion": "0.1.0",
+  "entryCommand": "node_modules/.bin/sdd.cmd",
+  "smoke": {
+    "install": "PASS",
+    "cli": "PASS"
+  }
+}

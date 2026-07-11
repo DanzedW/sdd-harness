@@ -1,0 +1,1 @@
+{"schemaVersion":1,"pass":false,"issues":[{"code":"INVALID_PROBE_EVIDENCE","message":"Probe evidence is incomplete: page.viewport.width, page.viewport.height, page.viewport.devicePixelRatio, page.document.scrollWidth, page.document.scrollHeight, page.canvas.clientWidth, page.canvas.clientHeight, page.canvas.bufferWidth, page.canvas.bufferHeight, interactions"}]}

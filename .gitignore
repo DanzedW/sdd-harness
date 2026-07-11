@@ -26,3 +26,8 @@ error.log
 .idea/
 .vscode/
 
+
+# SDD Harness runtime
+.sdd/runs/
+.understand-anything/
+llmwiki/.staging/
